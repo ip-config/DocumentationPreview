@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.com/KomodoPlatform/Documentation.svg?branch=master)](https://travis-ci.com/KomodoPlatform/Documentation)
+[![Build Status](https://travis-ci.com/KomodoPlatform/Documentation.svg?branch=dev)](https://travis-ci.com/KomodoPlatform/Documentation)
 
 # README!
 
-Documentation for https://docs.komodoplatform.com/
+Documentation Preview for https://docs.komodoplatform.com/
 -----
 
-This documentation is being written using the reStructuredText(reST, .rst) format. To be hosted at https://docs.komodoplatform.com/en/latest/ with the theme sphinx_rtd.
+This documentation is being written using the reStructuredText(reST, .rst) format. The original repo is at https://github.com/KomodoPlatform/Documentation To be hosted at https://docs.komodoplatform.com/ with the theme sphinx_rtd.
 
 -----
-To suggest edits, fork this repo, edit your fork and submit a PR
+To suggest edits, fork the repo https://github.com/KomodoPlatform/Documentation, edit your fork and submit a PR
 -----
 To get started,
 
