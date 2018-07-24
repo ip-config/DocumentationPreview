@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="HyperDEX-0.1.0-alpha.2-Enhancements" href="HyperDEX-0.1.0-alpha.2.html" />
-    <link rel="prev" title="HyperDEX Documentation" href="../../home-hyperDEX.html" /> 
+    <link rel="next" title="General Documentation" href="../../general-documentation.html" />
+    <link rel="prev" title="Change Log (HyperDEX)" href="../change-log-hyperDEX.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -804,7 +804,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../general/list-all-KomodoPlatform-Project-links.html#supernet-iguana-source-code">SuperNET, Iguana <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">code</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../whats-new.html">What’s new!</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../../whats-new.html">What’s new!</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../agama/change-log-agama-desktop.html">Change Log (Agama-Desktop)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../agama/change-log-agama-desktop.html#v0-2-41">v0.2.41</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../agama/change-log-agama-desktop.html#v0-2-40">v0.2.40</a></li>
@@ -883,7 +883,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../change-log-hyperDEX.html#alpha-2">0.1.0-alpha.2</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="HyperDEX-0.1.0-alpha.9.html">HyperDEX-0.1.0-alpha.9-Enhancements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HyperDEX-0.1.0-alpha.10-Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../general-documentation.html">General Documentation</a><ul>
@@ -1279,7 +1282,10 @@
 <li class="toctree-l2"><a class="reference internal" href="HyperDEX-0.1.0-alpha.6.html">HyperDEX-0.1.0-alpha.6-Enhancements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HyperDEX-0.1.0-alpha.5.html">HyperDEX-0.1.0-alpha.5-Enhancements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HyperDEX-0.1.0-alpha.2.html">HyperDEX-0.1.0-alpha.2-Enhancements</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">HyperDEX-0.1.0-alpha.10-Enhancements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HyperDEX-0.1.0-alpha.10-Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/blackjok3rtt/BOB_scripts">Setup Bob/Marketmaker nodes using easy scripts by &#64;blackjok3r</a></li>
@@ -1533,10 +1539,6 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Navigation Error</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../404.html">404</a></li>
-</ul>
 
             
           
@@ -1581,7 +1583,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../home-hyperDEX.html">HyperDEX Documentation</a> &raquo;</li>
+          <li><a href="../../whats-new.html">What’s new!</a> &raquo;</li>
         
       <li>HyperDEX-0.1.0-alpha.10-Enhancements</li>
     
@@ -1604,44 +1606,139 @@
             
   <div class="section" id="hyperdex-0-1-0-alpha-10-enhancements">
 <h1>HyperDEX-0.1.0-alpha.10-Enhancements<a class="headerlink" href="#hyperdex-0-1-0-alpha-10-enhancements" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="../../_images/image16.png"><img alt="../../_images/image16.png" class="align-center" src="../../_images/image16.png" style="width: 1499.25px; height: 966.75px;" /></a>
-<p>1. Automatically fix stuck swaps. <a href="#id1"><span class="problematic" id="id2">`Commit Details &lt;&gt;`_</span></a>
-This PR resolves the issue of users getting swaps that are stuck mid swap (e.g in <cite>swap 3/5</cite> state). For more detail select the “Commit Details” link</p>
-<p>Add ability to view the portfolio seed phrase. Commit Details
-The ability to view the portfolio seed phrase has been added to the Settings view. Once in the Settings view select the “View Seed Phrase” button</p>
-<p>Once selected you will be prompted to enter your password. Enter your portfolio password then select Submit</p>
-<p>After a successful password entry the portfolio seed phrase will now be displayed</p>
-<p>Add ability to rename and delete the portfolio. Commit Details
-To rename the portfolio go to Settings then edit the Name field at the top of the section</p>
-<p>To delete the portfolio go to Settings then select the Delete Portfolio button</p>
-<p>Once selected, a prompt will appear. Enter your portfolio name then select
+<p>1. Automatically fix stuck swaps. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/1d4a0bc7a193f72a82d52077fd3f5f6f545e930c&amp;sa=D&amp;ust=1532159827390000">Commit Details</a>
+This PR resolves the issue of users getting swaps that are stuck mid swap (e.g in <cite>swap 3/5</cite> state). For more detail follow the link <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/1d4a0bc7a193f72a82d52077fd3f5f6f545e930c&amp;sa=D&amp;ust=1532159827390000">Commit Details</a></p>
+<ol class="arabic simple" start="2">
+<li>Add ability to view the portfolio seed phrase. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/5634172785a5b22ad7f6308a316701dd10ffda2d&amp;sa=D&amp;ust=1532159827391000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>The ability to view the portfolio seed phrase has been added to the Settings view. Once in the Settings view select the “View Seed Phrase” button</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image16.png"><img alt="../../_images/image16.png" class="align-center" src="../../_images/image16.png" style="width: 500.25px; height: 449.25px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>Once selected you will be prompted to enter your password. Enter your portfolio password then select Submit.</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image24.png"><img alt="../../_images/image24.png" class="align-center" src="../../_images/image24.png" style="width: 337.5px; height: 172.5px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li>After a successful password entry the portfolio seed phrase will now be displayed</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image34.png"><img alt="../../_images/image34.png" class="align-center" src="../../_images/image34.png" style="width: 339.0px; height: 143.25px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Add ability to rename and delete the portfolio. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/5634172785a5b22ad7f6308a316701dd10ffda2d&amp;sa=D&amp;ust=1532159827393000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>To rename the portfolio go to Settings then edit the Name field at the top of the section</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image44.png"><img alt="../../_images/image44.png" class="align-center" src="../../_images/image44.png" style="width: 494.25px; height: 396.0px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>To delete the portfolio go to Settings then select the Delete Portfolio button</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image53.png"><img alt="../../_images/image53.png" class="align-center" src="../../_images/image53.png" style="width: 500.25px; height: 449.25px;" /></a>
+<p>c. Once selected, a prompt will appear. Enter your portfolio name then select
 “I understand, delete this portfolio”</p>
-<p>Add GLX Token (GLXT) currency. Commit Details
-GXLT added to Settings coin list</p>
-<p>GXLT available in the Dashboard view</p>
-<p>GLXT available in the Exchange</p>
-<p>Add Chainmakers (CHAIN) currency. Commit Details
-CHAIN coin added to Settings coin list</p>
-<p>CHAIN available in Dashboard view</p>
-<p>CHAIN added to the Exchange view</p>
-<p>Add PACcoin ($PAC) currency. Commit Details
-$PAC coin added to Settings coin list</p>
-<p>$PAC coin added to the Dashboard view</p>
-<p>$PAC coin added to the Exchange view</p>
-<p>Add Rapture (RAP) currency. Commit Details
-RAP coin added to the Settings coin list</p>
-<p>RAP coin added to the Dashboard view</p>
-<p>RAP coin added to the Exchange view</p>
-<p>Update some Electrum servers.Dev Only Commit Details
-Reset inputs in the Exchange view when currency changes. Commit Details
-When changing currencies in the Exchange view, in either Buy or Sell sections, all inputs will now be cleared</p>
-<p>Update to BarterDEX Marketmaker v1.0.315. Commit Details</p>
-<p>Fixes</p>
-<p>Fix order selection calculation. Commit Details
-A fix has been implemented to increase the order match rate
-Fix Portfolio menu being visible even when logging out. Commit Details
-Fix the dropdown of the currency selector being cut off and make settings scrollable. Commit Details
-The Setting view now includes an inner scroll which now allows an easy view of all options, including the theme setting and logout option</p>
+<a class="reference internal image-reference" href="../../_images/image64.png"><img alt="../../_images/image64.png" class="align-center" src="../../_images/image64.png" style="width: 336.0px; height: 267.0px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Add GLX Token (GLXT) currency. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/9ddb1f3345d02dd1a0933ed7f58aaaf865770592&amp;sa=D&amp;ust=1532159827394000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>GXLT added to Settings coin list</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image74.png"><img alt="../../_images/image74.png" class="align-center" src="../../_images/image74.png" style="width: 496.5px; height: 406.5px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>GXLT available in the Dashboard view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image83.png"><img alt="../../_images/image83.png" class="align-center" src="../../_images/image83.png" style="width: 963.75px; height: 477.75px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li>GLXT available in the Exchange</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image93.png"><img alt="../../_images/image93.png" class="align-center" src="../../_images/image93.png" style="width: 1013.25px; height: 458.25px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Add Chainmakers (CHAIN) currency. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/8fc85bc6f53a62394b54ead4b0032fdc4cf11a38&amp;sa=D&amp;ust=1532159827396000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>CHAIN coin added to Settings coin list</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image103.png"><img alt="../../_images/image103.png" class="align-center" src="../../_images/image103.png" style="width: 496.5px; height: 406.5px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>CHAIN available in Dashboard view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image113.png"><img alt="../../_images/image113.png" class="align-center" src="../../_images/image113.png" style="width: 977.25px; height: 452.25px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li>CHAIN added to the Exchange view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image122.png"><img alt="../../_images/image122.png" class="align-center" src="../../_images/image122.png" style="width: 996.75px; height: 468.0px;" /></a>
+<ol class="arabic simple" start="6">
+<li>Add PACcoin ($PAC) currency. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/31d55a73254bacbcd8e90024ed698d15a26a5673&amp;sa=D&amp;ust=1532159827398000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>$PAC coin added to Settings coin list</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image132.png"><img alt="../../_images/image132.png" class="align-center" src="../../_images/image132.png" style="width: 492.75px; height: 252.0px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>$PAC coin added to the Dashboard view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image141.png"><img alt="../../_images/image141.png" class="align-center" src="../../_images/image141.png" style="width: 1000.5px; height: 456.0px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li>$PAC coin added to the Exchange view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image151.png"><img alt="../../_images/image151.png" class="align-center" src="../../_images/image151.png" style="width: 999.0px; height: 473.25px;" /></a>
+<ol class="arabic simple" start="7">
+<li>Add Rapture (RAP) currency. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/478bb9184facd71ba576bf34e31ff11e87f892ec&amp;sa=D&amp;ust=1532159827399000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>RAP coin added to the Settings coin list</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image161.png"><img alt="../../_images/image161.png" class="align-center" src="../../_images/image161.png" style="width: 492.75px; height: 252.0px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>RAP coin added to the Dashboard view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image17.png"><img alt="../../_images/image17.png" class="align-center" src="../../_images/image17.png" style="width: 996.75px; height: 456.75px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li>RAP coin added to the Exchange view</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image18.png"><img alt="../../_images/image18.png" class="align-center" src="../../_images/image18.png" style="width: 1002.75px; height: 463.5px;" /></a>
+<ol class="arabic simple" start="8">
+<li>Update some Electrum servers. <strong>Dev Only</strong> <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/ca9479058d0b94a3c34228c9c148a71e928b3643&amp;sa=D&amp;ust=1532159827400000">Commit Details</a></li>
+<li>Reset inputs in the Exchange view when currency changes. <a class="reference external" href="https://www.google.com/url?q=https://github.com/atomiclabs/hyperdex/commit/98f53c289cda974cf2b51a85756a11ea9c2521e7&amp;sa=D&amp;ust=1532159827401000">Commit Details</a></li>
+</ol>
+<ol class="loweralpha simple">
+<li>When changing currencies in the Exchange view, in either Buy or Sell sections, all inputs will now be cleared</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/image19.png"><img alt="../../_images/image19.png" class="align-center" src="../../_images/image19.png" style="width: 996.75px; height: 462.0px;" /></a>
+<ol class="arabic simple" start="10">
+<li>Update to <a class="reference external" href="https://github.com/artemii235/SuperNET/releases/tag/v1.0.315">BarterDEX Marketmaker v1.0.315</a>. <a class="reference external" href="https://github.com/atomiclabs/hyperdex/commit/b37b40e1368587df98820e8cccd4539f8fe365ed">Commit Details</a></li>
+</ol>
+<div class="section" id="fixes">
+<h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Fix order selection calculation. <a class="reference external" href="https://github.com/atomiclabs/hyperdex/commit/87fa8242cb863286675abed10c44478631397651">Commit Details</a></dt>
+<dd><ul class="first last">
+<li>A fix has been implemented to increase the order match rate</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Fix Portfolio menu being visible even when logging out. <a class="reference external" href="https://github.com/atomiclabs/hyperdex/commit/406c7d1276b629390b4054c295d1faa64c6ced99">Commit Details</a></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Fix the dropdown of the currency selector being cut off and make settings scrollable. <a class="reference external" href="https://github.com/atomiclabs/hyperdex/commit/90cbbb6477b302b19575f02cf45ecef5ad7a1544">Commit Details</a></dt>
+<dd><ul class="first last">
+<li>The Setting view now includes an inner scroll which now allows an easy view of all options, including the theme setting and logout option</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/image20.png"><img alt="../../_images/image20.png" class="align-center" src="../../_images/image20.png" style="width: 492.0px; height: 450.75px;" /></a>
+</div>
 </div>
 
 
@@ -1652,10 +1749,10 @@ The Setting view now includes an inner scroll which now allows an easy view of a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="HyperDEX-0.1.0-alpha.2.html" class="btn btn-neutral float-right" title="HyperDEX-0.1.0-alpha.2-Enhancements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../general-documentation.html" class="btn btn-neutral float-right" title="General Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../home-hyperDEX.html" class="btn btn-neutral" title="HyperDEX Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../change-log-hyperDEX.html" class="btn btn-neutral" title="Change Log (HyperDEX)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
