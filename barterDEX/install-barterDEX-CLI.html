@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Step by Step Setup Guide for ETH (ERC20) Token Swap Using barterDEX" href="install-ETOMIC-barterDEX.html" />
-    <link rel="prev" title="List of all Coins currently tradable on BarterDEX (CLI)" href="list-of-all-coins-tradable.html" /> 
+    <link rel="prev" title="Anatomy of an ETOMIC swap (Atomic swap with ETH/ERC20 tokens using BarterDEX)" href="anatomy-of-a-ETOMIC-swap.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -1161,6 +1161,11 @@
 <li class="toctree-l3"><a class="reference internal" href="list-of-all-coins-tradable.html#komodo-asset-chains">Komodo Asset Chains</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy-of-a-ETOMIC-swap.html">Anatomy of an ETOMIC swap (Atomic swap with ETH/ERC20 tokens using BarterDEX)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anatomy-of-a-ETOMIC-swap.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy-of-a-ETOMIC-swap.html#the-details">The Details</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="change-log-barterDEX-GUI.html">Change Log (BarterDEX-GUI)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="change-log-barterDEX-GUI.html#v1-1-0">v1.1.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="change-log-barterDEX-GUI.html#v1-0-7">v1.0.7</a></li>
@@ -1609,21 +1614,24 @@
 <p><strong>This guide is intended for developers and advanced users (Linux &amp; MacOS) only using command line interface (CLI). GUI users, get</strong> <a class="reference external" href="https://github.com/KomodoPlatform/BarterDEX">BarterDEX GUI</a> <strong>. For Windows installations please refer to this</strong> <a class="reference internal" href="install-barterDEX-CLI-windows.html"><span class="doc">guide</span></a> <strong>and use this</strong> <a class="reference external" href="https://github.com/KomodoPlatform/BarterDEX/tree/dev/assets/bin/win64">link for the binaries.</a></p>
 <p>Komodo Platform (barterDEX) is capable of working with Electrum servers. This means it is not necessary to download blockchain data in your computer. As a matter of fact, you don’t need even download and run native coin wallet or daemon. Check the list of current Electrum servers here: <a class="reference internal" href="electrum-servers-list.html"><span class="doc">Electrum Servers List</span></a>.</p>
 <p>If you however choose to use a native coin daemon, please make sure it is fully synced. For Komodo and other assetchains use the <a class="reference external" href="https://artifacts.supernet.org/latest/">latest Agama installer</a> or use the <a class="reference external" href="https://github.com/DeckerSU/komodo-qt/releases">KomodoOcean-QT</a>.</p>
-<p>For a list of currently supported native coins and instructions for the coin specific configuration file, see <a class="reference external" href="https://support.supernet.org/support/solutions/articles/29000014808-installation-script-for-various-coins">Supported Native Coins</a></p>
+<p>For a list of currently supported native coins and instructions for the coin specific configuration file, see <a class="reference external" href="index-coin-configs-install-instructions">Supported Native Coins</a></p>
 <p>You may want to back up your system or clone it after everything is synced and running correctly BEFORE you start installing coin daemons.</p>
 <div class="section" id="installing-komodo-platform-barterdex">
 <h2>Installing Komodo Platform (barterDEX)<a class="headerlink" href="#installing-komodo-platform-barterdex" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="install-the-following-dependency-packages">
 <h3>Install the following dependency packages:<a class="headerlink" href="#install-the-following-dependency-packages" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="linux">
+<h4>Linux:<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt-get install cmake git libcurl4-openssl-dev build-essential
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="install-nanomsg">
 <h3>Install <code class="docutils literal notranslate"><span class="pre">nanomsg</span></code><a class="headerlink" href="#install-nanomsg" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="linux">
-<h4>Linux:<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id1">
+<h4>Linux:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 git clone https://github.com/nanomsg/nanomsg
 <span class="nb">cd</span> nanomsg
@@ -1724,7 +1732,7 @@ nano userpass
         <a href="install-ETOMIC-barterDEX.html" class="btn btn-neutral float-right" title="Step by Step Setup Guide for ETH (ERC20) Token Swap Using barterDEX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="list-of-all-coins-tradable.html" class="btn btn-neutral" title="List of all Coins currently tradable on BarterDEX (CLI)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="anatomy-of-a-ETOMIC-swap.html" class="btn btn-neutral" title="Anatomy of an ETOMIC swap (Atomic swap with ETH/ERC20 tokens using BarterDEX)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
