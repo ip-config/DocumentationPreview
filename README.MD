@@ -2,7 +2,7 @@
 
 # README!
 
-Documentation for https://docs.komodoplatform.com/ (This preview is built using the dev branch and can be viewed at https://komodoplatform.github.io/DocumentationPreview/)
+Documentation for https://docs.komodoplatform.com/
 -----
 
 This documentation is being written using the reStructuredText(reST, .rst) format. To be hosted at https://docs.komodoplatform.com with the theme sphinx_rtd.
