@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Komodo Platform  documentation</title>
+  <title>Komodo’s Method Of Security: Delayed Proof Of Work (DPOW) &mdash; Komodo Platform  documentation</title>
   
 
   
@@ -774,7 +774,7 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Quick-Links</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html">Collection of all KomodoPlatform Repositories and Releases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#agama-desktop">Agama (Desktop)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#source-code">Source code</a></li>
@@ -889,9 +889,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../home-whitepaper.html">Komodo Platorm - Whitepaper</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../home-whitepaper.html">Komodo Platorm - Whitepaper</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Komodo (Advanced Blockchain Technology, Focused On Freedom)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction.html#intoduction-to-komodo">Intoduction to Komodo</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Komodo’s Method Of Security: Delayed Proof Of Work (DPOW)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-foundational-discussion-of-blockchain-security">A Foundational Discussion of Blockchain Security</a></li>
 </ul>
 </li>
 </ul>
@@ -1036,7 +1040,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../notarynode/updating-Komodo-Notary-Node.html#lesson-7-adding-assets-dpow">Lesson 7: Adding assets dPoW</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo (for Notary Nodes)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../notarynode/update-Komodo-manually.html#problems">Problems?</a></li>
 </ul>
 </li>
@@ -1124,6 +1128,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.39.html">Agama-v0.2.39-Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.38.html">Agama-v0.2.38-Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.36.html">Agama-v0.2.36-Updates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../home-cc.html">CryptoConditions Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cc/activate-cc-independent-chain.html">How to Activate CryptoConditions on an Existing Komodo based Independent Chain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cc/activate-cc-independent-chain.html#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../home-barterDEX.html">BarterDEX Documentation</a><ul>
@@ -1509,7 +1520,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notarynode/updating-Komodo-Notary-Node.html#lesson-7-adding-assets-dpow">Lesson 7: Adding assets dPoW</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo (for Notary Nodes)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html#problems">Problems?</a></li>
 </ul>
 </li>
@@ -1597,7 +1608,7 @@
         
           <li><a href="../home-whitepaper.html">Komodo Platorm - Whitepaper</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Komodo’s Method Of Security: Delayed Proof Of Work (DPOW)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -1616,7 +1627,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="komodos-method-of-security-delayed-proof-of-work-dpow">
+<h1>Komodo’s Method Of Security: Delayed Proof Of Work (DPOW)<a class="headerlink" href="#komodos-method-of-security-delayed-proof-of-work-dpow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-foundational-discussion-of-blockchain-security">
+<h2>A Foundational Discussion of Blockchain Security<a class="headerlink" href="#a-foundational-discussion-of-blockchain-security" title="Permalink to this headline">¶</a></h2>
+<p>Komodo’s form of providing security is called Delayed Proof of Work technology
+(dPoW). It builds on the most advanced form of blockchain security in existence,
+Proof of Work technology (PoW). The latter form of security is the method that the
+Bitcoin network utilizes. To understand the value of Komodo’s dPoW security, we
+must first explain how PoW works and why it is the most secure method of maintaining a decentralized blockchain. We must also examine PoW’s shortcomings, so
+that we may understand the need for Komodo’s dPoW method and the advantages
+it provides to the blockchain community.</p>
+<p>To understand how PoW technology functions, we begin by explaining the roots
+that make the Bitcoin protocol a viable means of securely transferring value.</p>
+<div class="section" id="what-is-a-consensus-mechanism">
+<h3>What Is A Consensus Mechanism?<a class="headerlink" href="#what-is-a-consensus-mechanism" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-double-spend-problem">
+<h4>The “Double Spend” Problem<a class="headerlink" href="#the-double-spend-problem" title="Permalink to this headline">¶</a></h4>
+<p>The creation of blockchain technology stems from the early mathematical studies
+of encryption using computer technology.</p>
+<p>One such example is related to the information-encoding device, “Enigma,” invented by the Germans at the end of World War I. Alan Turing, a British Intelligence
+agent, famously beat the Enigma device by inventing the world’s first “digital computer.” This provided enough computing power to break <a class="reference external" href="https://en.wikipedia.org/wiki/Enigma_machine">Enigma’s</a> encryption and
+discover the German secret communications.</p>
+<p>This early affair with encryption set off a race throughout the world to develop
+myriad forms of securely transferring information from one party to another via
+computer technology. While each new form of computer encryption provided more
+advantages, there remained one problem that prevented encryption from being useful
+as a means of transferring not just information, but also financial value.</p>
+<p>This challenge is known as the “Double Spend” problem. The issue lies in the ability
+of computers to endlessly duplicate information. In the case of financial value, there
+are three important things to record: who owns a specific value; the time at which the person owns this value; the wallet address in which the value resides. When
+transferring financial value from one person to another, it is essential that if Person A
+sends money to Person B, Person A should not be able to duplicate the same money
+and send it again to Person C.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bitcoin_network">Bitcoin protocol</a>, invented by an anonymous person (or persons) claiming the
+name of Satoshi Nakamoto, solved the Double Spend problem. The underlying math
+and computer code is both highly complex and innovative. For the purposes of this
+paper we need only focus on the one aspect of the Bitcoin protocol that solves the
+Double Spend problem: the consensus mechanism.</p>
+</div>
+<div class="section" id="the-consensus-mechanism-provides-security-against-a-double-spend">
+<h4>The Consensus Mechanism Provides Security Against a “Double Spend”<a class="headerlink" href="#the-consensus-mechanism-provides-security-against-a-double-spend" title="Permalink to this headline">¶</a></h4>
+<p>The consensus mechanism invented by Nakamoto is perhaps one of the most powerful innovations of the twenty-first century. His invention allows individual devices to
+work together, using high levels of encryption, to securely and accurately track ownership of digital value (be it financial resources, digital eal estate, etc.). It performs
+this in a manner that does not allow anyone on the same network (i.e. the Internet)
+to spend the same value twice.</p>
+<p>Let us suppose a user, Alice, indicates in her digital wallet that she wants to send
+cryptocurrency money to a friend. Alice’s computer now gathers several pieces of
+information, including any necessary permissions and passwords, the amount that
+Alice wants to spend, and the receiving address of her friend’s wallet. All this information is gathered into a packet of data, called a “transaction,” and Alice’s device
+sends the transaction to the Internet.</p>
+<p>There are several types of devices that will interact with Alice’s transaction on
+the Internet. These devices will share the transaction information with other devices
+supporting the cryptocurrency network. For this discussion, we need only focus on
+one type of device: a cryptocurrency miner.</p>
+<p>Note: The following descriptions are simplified explanations of a truly complex byzantine
+process. There are many other strategies cryptocurrency miners devise to out-mine their com-
+petition, and those strategies can vary widely.</p>
+</div>
+</div>
+</div>
+</div>
+
 
            </div>
            

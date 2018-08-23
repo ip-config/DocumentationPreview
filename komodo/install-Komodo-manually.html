@@ -894,6 +894,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../whitepaper/introduction.html#intoduction-to-komodo">Intoduction to Komodo</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../whitepaper/section-1.html">Komodo’s Method Of Security: Delayed Proof Of Work (DPOW)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../whitepaper/section-1.html#a-foundational-discussion-of-blockchain-security">A Foundational Discussion of Blockchain Security</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../general-documentation.html">General Documentation</a><ul>
@@ -1036,7 +1040,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../notarynode/updating-Komodo-Notary-Node.html#lesson-7-adding-assets-dpow">Lesson 7: Adding assets dPoW</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo (for Notary Nodes)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../notarynode/update-Komodo-manually.html#problems">Problems?</a></li>
 </ul>
 </li>
@@ -1124,6 +1128,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.39.html">Agama-v0.2.39-Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.38.html">Agama-v0.2.38-Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.36.html">Agama-v0.2.36-Updates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../home-cc.html">CryptoConditions Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cc/activate-cc-independent-chain.html">How to Activate CryptoConditions on an Existing Komodo based Independent Chain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cc/activate-cc-independent-chain.html#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../home-barterDEX.html">BarterDEX Documentation</a><ul>
@@ -1509,7 +1520,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notarynode/updating-Komodo-Notary-Node.html#lesson-7-adding-assets-dpow">Lesson 7: Adding assets dPoW</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../notarynode/update-Komodo-manually.html">How to update Komodo (for Notary Nodes)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notarynode/update-Komodo-manually.html#problems">Problems?</a></li>
 </ul>
 </li>
@@ -1744,21 +1755,46 @@ tail -f debug.log
 </div>
 <div class="section" id="updating-komodo-installation-to-the-latest-version">
 <h3>Updating Komodo installation to the latest version<a class="headerlink" href="#updating-komodo-installation-to-the-latest-version" title="Permalink to this headline">¶</a></h3>
-<p>If you had already installed Komodo from it’s source code on your machine, and need to update to latest version just do these commands</p>
+<p>If you already have installed Komodo from it’s source code on your machine, and need to update to the latest version, follow the below steps.</p>
+<p>Please follow each step carefully and don’t skip to the next one until the previous step is successfully completed. If you have the <code class="docutils literal notranslate"><span class="pre">komodo</span> <span class="pre">daemon</span></code> running, you can leave it running while updating if you have enough resources in your machine. If you prefer to stop it before updating, please use <code class="docutils literal notranslate"><span class="pre">~/komodo/src/komodo-cli</span> <span class="pre">stop</span></code> to stop the daemon and proceed with the following steps to update.</p>
+<ol class="arabic simple">
+<li>Navigate to your komodo directory</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/komodo
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Make sure you don’t have any changes made to the source and reset it. This will ensure clean source and shouldn’t create issues while pulling the latest source in the next step.</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git reset --hard
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Clean the source directory</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make clean
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Update the source. (If you have any changes made to the source code, this command may not pull the latest source. Please make sure you have followed the previous steps)</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git pull
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Compile the latest binary</li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./zcutil/build.sh -j<span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+<p>Start your sevices as usual. If you didn’t stop the deamon before compiling, please stop it using <code class="docutils literal notranslate"><span class="pre">~/komodo/src/komodo-cli</span> <span class="pre">stop</span></code> and start again.</p>
+<p>If you are in a hurry, most of the time the below steps can be used to update the daemon and it takes lesser amount of time to compile. But it is a good practice to follow the steps outlined above to make sure the compilation process completes without an error.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/komodo/src/
 git checkout dev
 git pull
 make -j<span class="k">$(</span>nproc<span class="k">)</span>
 </pre></div>
 </div>
-<p>if you get any error executing make command, then do these commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/komodo/
-git checkout dev
-git pull
-./zcutil/build.sh -j<span class="k">$(</span>nproc<span class="k">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">build.sh</span></code> method will take longer as compared to <code class="docutils literal notranslate"><span class="pre">make</span></code> command. <code class="docutils literal notranslate"><span class="pre">make</span></code> command should work every time for you, butin case it doesn’t just use the <code class="docutils literal notranslate"><span class="pre">build.sh</span></code> method.</p>
 </div>
 <div class="section" id="important-backup-your-wallet">
 <h3>IMPORTANT: Backup your wallet<a class="headerlink" href="#important-backup-your-wallet" title="Permalink to this headline">¶</a></h3>
