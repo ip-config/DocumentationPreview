@@ -1720,7 +1720,7 @@ bettor hash: SHA256<span class="o">(</span>bettor entropy + dealer entropy<span 
 <p>The same values are used, but in different order. The resulting hashes are compared arithmetically for 1:1 bets and the standard industry use is used for the higher odds: <a class="reference external" href="https://dicesites.com/provably-fair">https://dicesites.com/provably-fair</a></p>
 <p>The dealer creates a dice plan and then also needs to create entropy transactions. Each win or loss that creates change also creates entropy transactions by the dealer, but timeout transactions wont as it needs to be created by the dealer node to prevent cheating. The dealer <code class="docutils literal notranslate"><span class="pre">tx</span></code> are locked into the global dice CC address, as is the dicebet transaction, which selects a specific entropy <code class="docutils literal notranslate"><span class="pre">tx</span></code> to “roll” against. Then the dicefinish process by the dealer will spend the dicebet outputs either all to itself for a loss, or the winning amount to th dice bettor’s address. For dicebets that are not dicefinish’ed by the dealer, anybody is able to do a timeout completion.</p>
 <div class="section" id="createfunding">
-<h2>createfunding:<a class="headerlink" href="#createfunding" title="Permalink to this headline">¶</a></h2>
+<h2>createfunding<a class="headerlink" href="#createfunding" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
 vout.0: CC vout <span class="k">for</span> funding
 vout.1: owner vout
@@ -1731,7 +1731,7 @@ vout.n-1: opreturn <span class="s1">&#39;F&#39;</span> sbits minbet maxbet maxod
 </div>
 </div>
 <div class="section" id="addfunding-entropy">
-<h2>addfunding (entropy):<a class="headerlink" href="#addfunding-entropy" title="Permalink to this headline">¶</a></h2>
+<h2>addfunding (entropy)<a class="headerlink" href="#addfunding-entropy" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
 vout.0: CC vout <span class="k">for</span> locked entropy funds
 vout.1: tag to owner address <span class="k">for</span> entropy funds
@@ -1741,7 +1741,7 @@ vout.n-1: opreturn <span class="s1">&#39;E&#39;</span> sbits fundingtxid hentrop
 </div>
 </div>
 <div class="section" id="bet">
-<h2>bet:<a class="headerlink" href="#bet" title="Permalink to this headline">¶</a></h2>
+<h2>bet<a class="headerlink" href="#bet" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: entropy txid from house (must validate vin0 of &#39;E&#39;)
 vins.1+: normal inputs
 vout.0: CC vout for locked entropy
@@ -1753,7 +1753,7 @@ vout.n-1: opreturn &#39;B&#39; sbits fundingtxid entropy
 </div>
 </div>
 <div class="section" id="loser">
-<h2>loser:<a class="headerlink" href="#loser" title="Permalink to this headline">¶</a></h2>
+<h2>loser<a class="headerlink" href="#loser" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
 vin.1: betTx CC vout.0 entropy from bet
 vin.2: betTx CC vout.1 bet amount from bet
@@ -1766,7 +1766,7 @@ vout.n-1: opreturn <span class="s1">&#39;L&#39;</span> sbits fundingtxid hentrop
 </div>
 </div>
 <div class="section" id="winner">
-<h2>winner:<a class="headerlink" href="#winner" title="Permalink to this headline">¶</a></h2>
+<h2>winner<a class="headerlink" href="#winner" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>same as loser, but vout.2 is winnings
 vout.3: change to fundingpk
 vout.n-1: opreturn <span class="s1">&#39;W&#39;</span> sbits fundingtxid hentropy proof
@@ -1774,7 +1774,7 @@ vout.n-1: opreturn <span class="s1">&#39;W&#39;</span> sbits fundingtxid hentrop
 </div>
 </div>
 <div class="section" id="timeout">
-<h2>timeout:<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h2>
+<h2>timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>same as winner, just without hentropy or proof
 </pre></div>
 </div>
@@ -1782,9 +1782,9 @@ vout.n-1: opreturn <span class="s1">&#39;W&#39;</span> sbits fundingtxid hentrop
 <p class="first admonition-title">Warning</p>
 <p>There is an attack vector that precludes betting any large amounts, it goes as follows:</p>
 <ol class="last arabic simple">
-<li>do dicebet to get the house entropy revealed</li>
-<li>calculate bettor entropy that would win against the house entropy</li>
-<li>reorg the chain and make a big bet using the winning entropy calculated in 2.</li>
+<li>Do dicebet to get the house entropy revealed</li>
+<li>Calculate bettor entropy that would win against the house entropy</li>
+<li>Reorg the chain and make a big bet using the winning entropy calculated in 2.</li>
 </ol>
 </div>
 <p>In order to mitigate this, the disclosure of the house entropy needs to be delayed beyond a reasonable reorg depth (notarization). It is recommended for production dice games with significant amounts of money to use such a delayed disclosure method.</p>

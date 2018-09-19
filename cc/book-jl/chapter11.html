@@ -1758,7 +1758,7 @@ oraclessamples oracletxid batonutxo num
 <p>The one final rpc is <code class="docutils literal notranslate"><span class="pre">oraclessamples</span></code>, which returns the most recent samples of data from a specific <code class="docutils literal notranslate"><span class="pre">publisher</span></code>. In order to have a performant solution to track all the potential data streams from all the publishers for all the <code class="docutils literal notranslate"><span class="pre">oracletxid</span></code>, a baton <code class="docutils literal notranslate"><span class="pre">utxo</span></code> is used. This is an output sent to a specific address and expected to have just a single <code class="docutils literal notranslate"><span class="pre">utxo</span></code> at any given time to allow for direct lookup. <code class="docutils literal notranslate"><span class="pre">oraclessamples</span></code> requires a starting <code class="docutils literal notranslate"><span class="pre">txid</span></code> to use and with each datapoint having the prior <code class="docutils literal notranslate"><span class="pre">batontxid</span></code>, there is a reverse linked list to traverse the most recent data.</p>
 <p>In order to implement this, the following vin/vout contraints are used:</p>
 <div class="section" id="create">
-<h2>create:<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<h2>create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
 vout.0: txfee tag to oracle normal address
 vout.1: change, <span class="k">if</span> any
@@ -1767,7 +1767,7 @@ vout.n-1: opreturn with name and description and format <span class="k">for</spa
 </div>
 </div>
 <div class="section" id="register">
-<h2>register:<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h2>
+<h2>register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
 vout.0: txfee tag to normal marker address
 vout.1: baton CC utxo
@@ -1777,7 +1777,7 @@ vout.n-1: opreturn with oracletxid, pubkey and price per data point
 </div>
 </div>
 <div class="section" id="subscribe">
-<h2>subscribe:<a class="headerlink" href="#subscribe" title="Permalink to this headline">¶</a></h2>
+<h2>subscribe<a class="headerlink" href="#subscribe" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
 vout.0: subscription fee to publishers CC address
 vout.1: change, if any
@@ -1786,7 +1786,7 @@ vout.n-1: opreturn with oracletxid, registered provider&#39;s pubkey, amount
 </div>
 </div>
 <div class="section" id="data">
-<h2>data:<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<h2>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
 vin.1: baton CC utxo <span class="o">(</span>most of the <span class="nb">time</span><span class="o">)</span>
 vin.2+: subscription or data vout.0
