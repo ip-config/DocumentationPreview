@@ -1678,40 +1678,53 @@
   <div class="section" id="chapter-07-rewards-example">
 <h1>Chapter 07 - rewards example<a class="headerlink" href="#chapter-07-rewards-example" title="Permalink to this headline">¶</a></h1>
 <p>The next CC contract in complexity is the rewards CC contract. This is designed to capture what most people like about masternodes, without anything else, ie. the rewards!</p>
-<p>The idea is to allow people to lock funds for some amount of time and get an extra reward. We also want to support having more than one rewards plan at a time and to allow customization of plan details. One twist that makes it a bit unexpected is that anybody should be able to unlock the funds that were locked, as long as it ends up in the locking address. The reason for this is that SPV servers want to be supported and while locking can be done via normal sendrawtransaction, it requires a native node to do the unlocking. By allowing anybody to be able to unlock, then there can be a special node that unlocks all locked funds when they are ready. This way, from the user’s point of view, they lock the funds and after it is matured, it reappears in their wallet.</p>
+<p>The idea is to allow people to lock funds for some amount of time and get an extra reward. We also want to support having more than one rewards plan at a time and to allow customization of plan details. One twist that makes it a bit unexpected is that anybody should be able to unlock the funds that were locked, as long as it ends up in the locking address. The reason for this is that SPV servers want to be supported and while locking can be done via normal <code class="docutils literal notranslate"><span class="pre">sendrawtransaction</span></code>, it requires a native node to do the unlocking. By allowing anybody to be able to unlock, then there can be a special node that unlocks all locked funds when they are ready. This way, from the user’s point of view, they lock the funds and after it is matured, it reappears in their wallet.</p>
 <p>The above requirements leads us to using the global CC address for the rewards contract to lock the funds in. That allows anybody to properly sign the unlock, but of course that is not enough, we need to make sure they are following all the unlock requirements. Primarily that the funds go back to the locking address.</p>
 <p>The four aspects of the rewards plan that are customizable are:
-APR, minseconds, maxseconds, mindeposit</p>
+<code class="docutils literal notranslate"><span class="pre">APR</span></code>, <code class="docutils literal notranslate"><span class="pre">minseconds</span></code>, <code class="docutils literal notranslate"><span class="pre">maxseconds</span></code>, <code class="docutils literal notranslate"><span class="pre">mindeposit</span></code></p>
 <p>This allows each plan to set a different APR (up to 25%, anything above is becoming silly), the minimum time funds must be locked, the maximum time they are earning rewards and the minimum that can be deposited.</p>
-<p>So the tx that creates the rewards plan will have these attributes and it is put into the OP_RETURN data. All the other calls will reference the plan creation txid and inherit these parameters from the creation tx. This means it is an important validation to do, to make sure the funding txid is a valid funding txid.</p>
+<p>So the <code class="docutils literal notranslate"><span class="pre">tx</span></code> that creates the rewards plan will have these attributes and it is put into the <code class="docutils literal notranslate"><span class="pre">OP_RETURN</span></code> data. All the other calls will reference the plan creation <code class="docutils literal notranslate"><span class="pre">txid</span></code> and inherit these parameters from the creation <code class="docutils literal notranslate"><span class="pre">tx</span></code>. This means it is an important validation to do, to make sure the funding <code class="docutils literal notranslate"><span class="pre">txid</span></code> is a valid funding <code class="docutils literal notranslate"><span class="pre">txid</span></code>.</p>
 <p>Since it is possible that the initial funding will be used up, there needs to be a way for more funding to be added to the rewards plan.</p>
-<p>Having multiple possible rewards plans means it is useful to have rpc calls to get information about them. Hence: rewardslist returns the list of rewards creation txids and rewardsinfo &lt;txid&gt; returns the details about a specific rewards plan.</p>
-<p>A locking transaction sends funds to the rewards CC address, along with a normal (small) tx to the address that the unlock should go to. This allows the validation of the proper unlocking. Also, it is important to make sure only locking transactions are able to be unlocked. Additionally, the minimum time needs to elapse before unlocking is allowed.</p>
-<p>All of these things are done in rewards.cpp, with the validation code being about 200 lines and a total of 700 lines or so. Bigger than faucet, but most of the code is the non-consensus code to create the proper transactions. In order to simplify the validation, specific vin and vout positions are designated to have specific required values:</p>
-<p>createfunding
-vins.*: normal inputs
-vout.0: CC vout for funding
-vout.1: normal marker vout for easy searching
+<p>Having multiple possible rewards plans means it is useful to have rpc calls to get information about them. Hence: <code class="docutils literal notranslate"><span class="pre">rewardslist</span></code> returns the list of rewards creation <code class="docutils literal notranslate"><span class="pre">txids</span></code> and <code class="docutils literal notranslate"><span class="pre">rewardsinfo</span> <span class="pre">&lt;txid&gt;</span></code> returns the details about a specific rewards plan.</p>
+<p>A locking transaction sends funds to the rewards CC address, along with a normal (small) <code class="docutils literal notranslate"><span class="pre">tx</span></code> to the address that the unlock should go to. This allows the validation of the proper unlocking. Also, it is important to make sure only locking transactions are able to be unlocked. Additionally, the minimum time needs to elapse before unlocking is allowed.</p>
+<p>All of these things are done in <a class="reference external" href="https://github.com/jl777/komodo/tree/jl777/src/cc/rewards.cpp">rewards.cpp</a>, with the validation code being about 200 lines and a total of 700 lines or so. Bigger than faucet, but most of the code is the non-consensus code to create the proper transactions. In order to simplify the validation, specific vin and vout positions are designated to have specific required values:</p>
+<div class="section" id="createfunding">
+<h2>createfunding<a class="headerlink" href="#createfunding" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
+vout.0: CC vout <span class="k">for</span> funding
+vout.1: normal marker vout <span class="k">for</span> easy searching
 vout.2: normal change
-vout.n-1: opreturn ‘F’ sbits APR minseconds maxseconds mindeposit</p>
-<p>addfunding
-vins.*: normal inputs
-vout.0: CC vout for funding
+vout.n-1: opreturn <span class="s1">&#39;F&#39;</span> sbits APR minseconds maxseconds mindeposit
+</pre></div>
+</div>
+</div>
+<div class="section" id="addfunding">
+<h2>addfunding<a class="headerlink" href="#addfunding" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
+vout.0: CC vout <span class="k">for</span> funding
 vout.1: normal change
-vout.n-1: opreturn ‘A’ sbits fundingtxid</p>
-<p>lock
-vins.*: normal inputs
+vout.n-1: opreturn <span class="s1">&#39;A&#39;</span> sbits fundingtxid
+</pre></div>
+</div>
+</div>
+<div class="section" id="lock">
+<h2>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>vins.*: normal inputs
 vout.0: CC vout for locked funds
 vout.1: normal output to unlock address
 vout.2: change
-vout.n-1: opreturn ‘L’ sbits fundingtxid</p>
-<p>unlock
-vin.0: locked funds CC vout.0 from lock
-vin.1+: funding CC vout.0 from ‘F’ and ‘A’ and ‘U’
+vout.n-1: opreturn ‘L’ sbits fundingtxid</div></blockquote>
+<p>unlock</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: locked funds CC vout.0 from lock
+vin.1+: funding CC vout.0 from <span class="s1">&#39;F&#39;</span> and <span class="s1">&#39;A&#39;</span> and <span class="s1">&#39;U&#39;</span>
 vout.0: funding CC change
 vout.1: normal output to unlock address
-vout.n-1: opreturn ‘U’ sbits fundingtxid</p>
+vout.n-1: opreturn <span class="s1">&#39;U&#39;</span> sbits fundingtxid
+</pre></div>
+</div>
 <p>It is recommended to create such a vin/vout allocation for each CC contract to make sure that the rpc calls that create the transaction and the validation code have a specific set of constraints that can be checked for.</p>
+</div>
 </div>
 
 

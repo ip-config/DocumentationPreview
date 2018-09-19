@@ -1679,71 +1679,103 @@
 <h1>Chapter 08 - assets example<a class="headerlink" href="#chapter-08-assets-example" title="Permalink to this headline">¶</a></h1>
 <p>In some respects the assets CC is the most complex, it was actually the first one that I coded. It is however using a simple model, even for the DEX functions, so while it is quite involved, it does not have the challenge/response complexity of dice.</p>
 <p>There are two major aspects to creating tokens. First is to create and track it, down to every specific satoshi. The second is solving how to implement DEX functions of trading assets.</p>
-<p>The model used is “colored coins”. This means that the token creating txid issues the assets as denoted by all the satoshis, so locking 1 COIN issues 100 million tokens. This multiplication will allow creation of plenty of assets. We want to preserve all the tokens created across all allowed operations. The way this is achieved is that all operations attaches the token creation txid in its OP_RETURN, along with the specified operation.</p>
-<p>Ownership of tokens are represented by the colored satoshis in the CC address for the user’s pubkey. This allows using the standard utxo system to automatically track ownership of the tokens. This automatic inheritance is one of the big advantages of utxo CC contracts that compensates for the slightly more work needed to implement a CC contract.</p>
-<p>So now we have the standard CC addresss, list and info commands that provide the CC addresses, list of all tokens and info on specific tokens and the ability to create and transfer tokens. Any amount of tokens can be created from 1 to very large numbers and using standard addressbalance, addressutxo type of commands, the details of all assets owned can be determined for a specific pubkey.</p>
-<p>Now we can solve the DEX part of the tokenization, which turns out to be much simpler than initially imagined. We start with bidding for a specific token. Funds for the bid are locked into the global CC address, along with the desired token and price. This creates a bid utxo that is able to be listed via an orderbook rpc call. To fill the bid, a specific bid utxo is spent with the appropriate number of assets and change and updated price for the unfilled amount. if the entire amount is filled, then it wont appear in the orderbook anymore.</p>
-<p>asks work by locking assets along with the required price. Partial fills can be supported and the rpc calls can mask the utxo-ness of the funds/assets needed by automatically gathering the required amount of funds to fill the specific amount.</p>
-<p>With calls to cancel the pending bid or ask, we get a complete set of rpc calls that can support a COIN-centric DEX.</p>
+<p>The model used is “colored coins”. This means that the token creating txid issues the assets as denoted by all the satoshis, so locking 1 COIN issues 100 million tokens. This multiplication will allow creation of plenty of assets. We want to preserve all the tokens created across all allowed operations. The way this is achieved is that all operations attaches the token creation <code class="docutils literal notranslate"><span class="pre">txid</span></code> in its <code class="docutils literal notranslate"><span class="pre">OP_RETURN</span></code>, along with the specified operation.</p>
+<p>Ownership of tokens are represented by the colored satoshis in the CC address for the user’s <code class="docutils literal notranslate"><span class="pre">pubkey</span></code>. This allows using the standard utxo system to automatically track ownership of the tokens. This automatic inheritance is one of the big advantages of utxo CC contracts that compensates for the slightly more work needed to implement a CC contract.</p>
+<p>So now we have the standard CC addresss, list and info commands that provide the CC addresses, list of all tokens and info on specific tokens and the ability to create and transfer tokens. Any amount of tokens can be created from 1 to very large numbers and using standard <code class="docutils literal notranslate"><span class="pre">addressbalance</span></code>, <code class="docutils literal notranslate"><span class="pre">addressutxo</span></code> type of commands, the details of all assets owned can be determined for a specific pubkey.</p>
+<p>Now we can solve the DEX part of the tokenization, which turns out to be much simpler than initially imagined. We start with bidding for a specific token. Funds for the <code class="docutils literal notranslate"><span class="pre">bid</span></code> are locked into the global CC address, along with the desired token and price. This creates a <code class="docutils literal notranslate"><span class="pre">bid</span></code> utxo that is able to be listed via an orderbook rpc call. To fill the <code class="docutils literal notranslate"><span class="pre">bid</span></code>, a specific <code class="docutils literal notranslate"><span class="pre">bid</span></code> utxo is spent with the appropriate number of assets and change and updated price for the unfilled amount. if the entire amount is filled, then it wont appear in the orderbook anymore.</p>
+<p><code class="docutils literal notranslate"><span class="pre">asks</span></code> work by locking assets along with the required price. Partial fills can be supported and the rpc calls can mask the utxo-ness of the funds/assets needed by automatically gathering the required amount of funds to fill the specific amount.</p>
+<p>With calls to cancel the pending <code class="docutils literal notranslate"><span class="pre">bid</span></code> or <code class="docutils literal notranslate"><span class="pre">ask</span></code>, we get a complete set of rpc calls that can support a COIN-centric DEX.</p>
 <p>In the future, it is expected that a token swap rpc can be supported to allow directly swapping one token for another, but at first it is expected that there wont be sufficient volumes for such token to token swaps, so it was left out of the initial implementation.</p>
 <p>With just these rpc calls and associated validation, we get the ability to issue tokens and trade them on a DEX!</p>
-<p>create
-vin.0: normal input
+<div class="section" id="create">
+<h2>create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
 vout.0: issuance assetoshis to CC
 vout.1: tag sent to normal address of AssetsCCaddress
-vout.2: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘c’] [origpubkey] “&lt;assetname&gt;” “&lt;description&gt;”</p>
-<p>transfer
-vin.0: normal input
+vout.2: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;c&#39;</span><span class="o">]</span> <span class="o">[</span>origpubkey<span class="o">]</span> <span class="s2">&quot;&lt;assetname&gt;&quot;</span> <span class="s2">&quot;&lt;description&gt;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transfer">
+<h2>transfer<a class="headerlink" href="#transfer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
 vin.1 .. vin.n-1: valid CC outputs
 vout.0 to n-2: assetoshis output to CC
-vout.n-2: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘t’] [assetid]</p>
-<p>buyoffer:
-vins.*: normal inputs (bid + change)
+vout.n-2: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;t&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="buyoffer">
+<h2>buyoffer<a class="headerlink" href="#buyoffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs <span class="o">(</span>bid + change<span class="o">)</span>
 vout.0: amount of bid to unspendable
-vout.1: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘b’] [assetid] [amount of asset required] [origpubkey]</p>
-<p>cancelbuy:
-vin.0: normal input
-vin.1: unspendable.(vout.0 from buyoffer) buyTx.vout[0]
-vout.0: vin.1 value to original pubkey buyTx.vout[0].nValue -&gt; [origpubkey]
-vout.1: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘o’] [assetid]</p>
-<p>fillbuy:
-vin.0: normal input
-vin.1: unspendable.(vout.0 from buyoffer) buyTx.vout[0]
-vin.2+: valid CC output satisfies buyoffer (<a href="#id1"><span class="problematic" id="id2">*</span></a>tx.vin[2])-&gt;nValue
+vout.1: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;b&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span> <span class="o">[</span>amount of asset required<span class="o">]</span> <span class="o">[</span>origpubkey<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cancelbuy">
+<h2>cancelbuy<a class="headerlink" href="#cancelbuy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
+vin.1: unspendable.<span class="o">(</span>vout.0 from buyoffer<span class="o">)</span> buyTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>
+vout.0: vin.1 value to original pubkey buyTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>.nValue -&gt; <span class="o">[</span>origpubkey<span class="o">]</span>
+vout.1: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;o&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fillbuy">
+<h2>fillbuy<a class="headerlink" href="#fillbuy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
+vin.1: unspendable.<span class="o">(</span>vout.0 from buyoffer<span class="o">)</span> buyTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>
+vin.2+: valid CC output satisfies buyoffer <span class="o">(</span>*tx.vin<span class="o">[</span><span class="m">2</span><span class="o">])</span>-&gt;nValue
 vout.0: remaining amount of bid to unspendable
 vout.1: vin.1 value to signer of vin.2
 vout.2: vin.2 assetoshis to original pubkey
-vout.3: CC output for assetoshis change (if any)
-vout.4: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘B’] [assetid] [remaining asset required] [origpubkey]</p>
-<p>selloffer:
-vin.0: normal input
-vin.1+: valid CC output for sale
+vout.3: CC output <span class="k">for</span> assetoshis change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.4: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;B&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span> <span class="o">[</span>remaining asset required<span class="o">]</span> <span class="o">[</span>origpubkey<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selloffer">
+<h2>selloffer<a class="headerlink" href="#selloffer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
+vin.1+: valid CC output <span class="k">for</span> sale
 vout.0: vin.1 assetoshis output to CC to unspendable
-vout.1: CC output for change (if any)
-vout.2: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘s’] [assetid] [amount of native coin required] [origpubkey]</p>
-<p>cancel:
-vin.0: normal input
-vin.1: unspendable.(vout.0 from exchange or selloffer) sellTx/exchangeTx.vout[0] inputTx
-vout.0: vin.1 assetoshis to original pubkey CC sellTx/exchangeTx.vout[0].nValue -&gt; [origpubkey]
-vout.1: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘x’] [assetid]</p>
-<p>fillsell:
-vin.0: normal input
-vin.1: unspendable.(vout.0 assetoshis from selloffer) sellTx.vout[0]
-vin.2+: normal output that satisfies selloffer (<a href="#id3"><span class="problematic" id="id4">*</span></a>tx.vin[2])-&gt;nValue
+vout.1: CC output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.2: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;s&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span> <span class="o">[</span>amount of native coin required<span class="o">]</span> <span class="o">[</span>origpubkey<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cancel">
+<h2>cancel:<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
+vin.1: unspendable.<span class="o">(</span>vout.0 from exchange or selloffer<span class="o">)</span> sellTx/exchangeTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span> inputTx
+vout.0: vin.1 assetoshis to original pubkey CC sellTx/exchangeTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>.nValue -&gt; <span class="o">[</span>origpubkey<span class="o">]</span>
+vout.1: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;x&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fillsell">
+<h2>fillsell:<a class="headerlink" href="#fillsell" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: normal input
+vin.1: unspendable.<span class="o">(</span>vout.0 assetoshis from selloffer<span class="o">)</span> sellTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>
+vin.2+: normal output that satisfies selloffer <span class="o">(</span>*tx.vin<span class="o">[</span><span class="m">2</span><span class="o">])</span>-&gt;nValue
 vout.0: remaining assetoshis -&gt; unspendable
-vout.1: vin.1 assetoshis to signer of vin.2 sellTx.vout[0].nValue -&gt; any
-vout.2: vin.2 value to original pubkey [origpubkey]
-vout.3: CC asset for change (if any)
-vout.4: CC asset2 for change (if any) ‘E’ only
-vout.5: normal output for change (if any)
-vout.n-1: opreturn [EVAL_ASSETS] [‘S’] [assetid] [amount of coin still required] [origpubkey]</p>
+vout.1: vin.1 assetoshis to signer of vin.2 sellTx.vout<span class="o">[</span><span class="m">0</span><span class="o">]</span>.nValue -&gt; any
+vout.2: vin.2 value to original pubkey <span class="o">[</span>origpubkey<span class="o">]</span>
+vout.3: CC asset <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.4: CC asset2 <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span> <span class="s1">&#39;E&#39;</span> only
+vout.5: normal output <span class="k">for</span> change <span class="o">(</span><span class="k">if</span> any<span class="o">)</span>
+vout.n-1: opreturn <span class="o">[</span>EVAL_ASSETS<span class="o">]</span> <span class="o">[</span><span class="s1">&#39;S&#39;</span><span class="o">]</span> <span class="o">[</span>assetid<span class="o">]</span> <span class="o">[</span>amount of coin still required<span class="o">]</span> <span class="o">[</span>origpubkey<span class="o">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

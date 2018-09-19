@@ -1678,28 +1678,36 @@
   <div class="section" id="chapter-06-faucet-example">
 <h1>Chapter 06 - faucet example<a class="headerlink" href="#chapter-06-faucet-example" title="Permalink to this headline">¶</a></h1>
 <p>Finally, we are ready for the first actual example of a CC contract. The faucet. This is a very simple contract and it ran into some interesting bugs in the first incarnation.</p>
-<p>The code in ~/komodo/src/cc/faucet.cpp is the ultimate documentation for it with all the details, so I will just address the conceptual issues here.</p>
+<p>The code in <a class="reference external" href="https://github.com/jl777/komodo/tree/jl777/src/cc/faucet.cpp">~/komodo/src/cc/faucet.cpp</a> is the ultimate documentation for it with all the details, so I will just address the conceptual issues here.</p>
 <p>The idea is that people send funds to the faucet by locking it in faucet’s global CC address and anybody is allowed to create a faucetget transaction that spends it.</p>
-<p>There are only 7 functions in faucet.cpp, a bit over 200 lines including comments. The first three are for validation, the last four for the rpc calls to use.</p>
-<p>int64_t IsFaucetvout(struct CCcontract_info <a href="#id1"><span class="problematic" id="id2">*</span></a>cp,const CTransaction&amp; tx,int32_t v)</p>
-<p>bool FaucetExactAmounts(struct CCcontract_info <em>cp,Eval</em> eval,const CTransaction &amp;tx,int32_t minage,uint64_t txfee)</p>
-<p>bool FaucetValidate(struct CCcontract_info <em>cp,Eval</em> eval,const CTransaction &amp;tx)</p>
-<p>int64_t AddFaucetInputs(struct CCcontract_info <a href="#id3"><span class="problematic" id="id4">*</span></a>cp,CMutableTransaction &amp;mtx,CPubKey pk,int64_t total,int32_t maxinputs)</p>
-<p>std::string FaucetGet(uint64_t txfee)</p>
-<p>std::string FaucetFund(uint64_t txfee,int64_t funds)</p>
-<p>UniValue FaucetInfo()</p>
-<p>Functions in rpcwallet implement:</p>
-<p>faucetaddress fully implemented in rpcwallet.cpp
-faucetfund calls FaucetFund
-faucetget calls FaucetGet
-faucetinfo calls FaucetInfo</p>
-<p>Now you might not be a programmer, but I hope you are able to understand the above sequence. user types in a cli call, komodo-cli processes it by calling the rpc function, which in turn calls the function inside faucet.cpp</p>
-<p>No magic, just simple conversion of a user command line call that runs code inside the komodod. Both the faucetfund and faucetget create properly signed rawtransaction that is ready to be broadcast to the network using the standard sendrawtransaction rpc. It doesnt automatically do this to allow the GUI to have a confirmation step with all the details before doing an irrevocable CC contract transaction.</p>
-<p>faucetfund allows anybody to add funds to the faucet
-faucetget allows anybody to get 0.1 coins from the faucet as long as they dont violate the rules.</p>
+<p>There are only 7 functions in <a class="reference external" href="https://github.com/jl777/komodo/tree/jl777/src/cc/faucet.cpp">faucet.cpp</a>, a bit over 200 lines including comments. The first three are for validation, the last four for the rpc calls to use.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>int64_t IsFaucetvout<span class="o">(</span>struct CCcontract_info *cp,const CTransaction<span class="p">&amp;</span> tx,int32_t v<span class="o">)</span>
+
+bool FaucetExactAmounts<span class="o">(</span>struct CCcontract_info *cp,Eval* eval,const CTransaction <span class="p">&amp;</span>tx,int32_t minage,uint64_t txfee<span class="o">)</span>
+
+bool FaucetValidate<span class="o">(</span>struct CCcontract_info *cp,Eval* eval,const CTransaction <span class="p">&amp;</span>tx<span class="o">)</span>
+
+int64_t AddFaucetInputs<span class="o">(</span>struct CCcontract_info *cp,CMutableTransaction <span class="p">&amp;</span>mtx,CPubKey pk,int64_t total,int32_t maxinputs<span class="o">)</span>
+
+std::string FaucetGet<span class="o">(</span>uint64_t txfee<span class="o">)</span>
+
+std::string FaucetFund<span class="o">(</span>uint64_t txfee,int64_t funds<span class="o">)</span>
+
+UniValue FaucetInfo<span class="o">()</span>
+</pre></div>
+</div>
+<p>Functions in <code class="docutils literal notranslate"><span class="pre">rpcwallet</span></code> implement:</p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetaddress</span></code> fully implemented in <a class="reference external" href="https://github.com/jl777/komodo/tree/jl777/src/wallet/rpcwallet.cpp">rpcwallet.cpp</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetfund</span></code> calls <code class="docutils literal notranslate"><span class="pre">FaucetFund</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetget</span></code> calls <code class="docutils literal notranslate"><span class="pre">FaucetGet</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetinfo</span></code> calls <code class="docutils literal notranslate"><span class="pre">FaucetInfo</span></code></p>
+<p>Now you might not be a programmer, but I hope you are able to understand the above sequence. user types in a cli call, <code class="docutils literal notranslate"><span class="pre">komodo-cli</span></code> processes it by calling the rpc function, which in turn calls the function inside <a class="reference external" href="://github.com/jl777/komodo/tree/jl777/src/cc/faucet.cpp">faucet.cpp</a></p>
+<p>No magic, just simple conversion of a user command line call that runs code inside the komodod. Both the <code class="docutils literal notranslate"><span class="pre">faucetfund</span></code> and <code class="docutils literal notranslate"><span class="pre">faucetget</span></code> create properly signed rawtransaction that is ready to be broadcast to the network using the standard <code class="docutils literal notranslate"><span class="pre">sendrawtransaction</span></code> rpc. It doesnt automatically do this to allow the GUI to have a confirmation step with all the details before doing an irrevocable CC contract transaction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetfund</span></code> allows anybody to add funds to the faucet
+<code class="docutils literal notranslate"><span class="pre">faucetget</span></code> allows anybody to get 0.1 coins from the faucet as long as they dont violate the rules.</p>
 <p>And we come to what it is all about. The rules of the faucet. Initially it was much less strict and that allowed it to be drained slowly, but automatically and it prevented most from being able to use the faucet.</p>
-<p>To make it much harder to leech, it was made so each faucetget returned only 0.1 coins (down from 1.0) so it was worth 90% less. It was also made so that it had to be to a fresh address with less than 3 transactions. Finally each txid was constrained to start and end with 00! This is a cool trick to force usage of precious CPU time (20 to 60 seconds depending on system) to generate a valid txid. Like PoW mining for the txid and I expect other CC contracts to use a similar mechanism if they want to rate limit usage.</p>
-<p>Combined, it became such a pain to get 0.1 coins, the faucet leeching problem was solved. It might not seem like too much trouble to change an address to get another 0.1 coins, but the way things are setup you need to launch the komodod -pubkey=&lt;your pubkey&gt; to change the pubkey that is active for a node. That means to change the pubkey being used, the komodod needs to be restarted and this creates a lot of issues for any automation trying to do this. Combined with the PoW required, only when 0.1 coins becomes worth a significant effort will faucet leeching return. In that case, the PoW requirement can be increased and coin amount decreased, likely with a faucet2 CC contract as I dont expect many such variations to be needed.</p>
+<p>To make it much harder to leech, it was made so each <code class="docutils literal notranslate"><span class="pre">faucetget</span></code> returned only 0.1 coins (down from 1.0) so it was worth 90% less. It was also made so that it had to be to a fresh address with less than 3 transactions. Finally each txid was constrained to start and end with 00! This is a cool trick to force usage of precious CPU time (20 to 60 seconds depending on system) to generate a valid txid. Like PoW mining for the txid and I expect other CC contracts to use a similar mechanism if they want to rate limit usage.</p>
+<p>Combined, it became such a pain to get 0.1 coins, the faucet leeching problem was solved. It might not seem like too much trouble to change an address to get another 0.1 coins, but the way things are setup you need to launch the <code class="docutils literal notranslate"><span class="pre">komodod</span></code> <code class="docutils literal notranslate"><span class="pre">-pubkey=&lt;your</span> <span class="pre">pubkey&gt;</span></code> to change the pubkey that is active for a node. That means to change the pubkey being used, the komodod needs to be restarted and this creates a lot of issues for any automation trying to do this. Combined with the PoW required, only when 0.1 coins becomes worth a significant effort will faucet leeching return. In that case, the PoW requirement can be increased and coin amount decreased, likely with a faucet2 CC contract as I dont expect many such variations to be needed.</p>
 </div>
 
 
