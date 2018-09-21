@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Komodo Platform  documentation</title>
+  <title>The Komodo Solution &mdash; Komodo Platform  documentation</title>
   
 
   
@@ -79,7 +79,7 @@
             
             
               <p class="caption"><span class="caption-text">Quick-Links</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html">Collection of all KomodoPlatform Repositories and Releases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#agama-desktop">Agama (Desktop)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#source-code">Source code</a></li>
@@ -202,7 +202,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../home-whitepaper.html">Komodo Platorm - Whitepaper</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../home-whitepaper.html">Komodo Platorm - Whitepaper</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Komodo (Advanced Blockchain Technology, Focused On Freedom)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction.html#intoduction-to-komodo">Intoduction to Komodo</a></li>
 </ul>
@@ -213,8 +213,9 @@
 <li class="toctree-l3"><a class="reference internal" href="chapter3.html">The Komodo Solution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="section-2.html">The Decentralized Initial Coin Offering(dICO)</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="section-2.html">The Decentralized Initial Coin Offering(dICO)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="chapter4.html">Abstract of the Decentralized Initial Coin Offering</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The Komodo Solution</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="section-3.html">Komodo’s Atomic-Swap Powered, Decentralized Exchange: Barterdex</a><ul class="simple">
@@ -1709,7 +1710,7 @@
         
           <li><a href="section-2.html">The Decentralized Initial Coin Offering(dICO)</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>The Komodo Solution</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -1728,7 +1729,268 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="the-komodo-solution">
+<h1>The Komodo Solution<a class="headerlink" href="#the-komodo-solution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-decentralized-initial-coin-offering">
+<h2>The Decentralized Initial Coin Offering<a class="headerlink" href="#the-decentralized-initial-coin-offering" title="Permalink to this headline">¶</a></h2>
+<p>The Komodo ecosystem presents a solution, the decentralized the initial coin offering (dICO), that solves these issues and even adds new possibilities to the cryptocurrency market. The decentralized nature of the dICO enables the entrepreneur to
+release a blockchain product beyond the reach of a malicious third-party influencer.
+Furthermore, through our decentralized exchange, BarterDEX, the dICO allows an
+entrepreneur to release their product in a manner that mitigates and even eliminates
+many of the issues regarding whales, hackers, and human error. With the advantage
+of Komodo’s privacy technology, Jumblr, the participants in a dICO are empowered
+with their right to barter in private.</p>
+<p>Our decentralized exchange, BarterDEX, is explained in detail in <a class="reference external" href="section-3.html">part III</a>. An indepth discussion of our privacy technology, Jumblr, is provided in <a class="reference external" href="section-4.html">Part IV</a>.</p>
+</div>
+<div class="section" id="the-process-of-creating-a-new-blockchain-in-the-komodo-ecosystem">
+<h2>The Process of Creating a New Blockchain in the Komodo Ecosystem<a class="headerlink" href="#the-process-of-creating-a-new-blockchain-in-the-komodo-ecosystem" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are interested in hosting your own dICO to become a part of the Komodo ecosystem, please reach out to our team directly on our website, <a class="reference external" href="https://komodoplatform.com">https://komodoplatform.com</a> . We are actively seeking new partnerships.</p>
+</div>
+<p>Formerly, coding and generating the blockchain itself were a most difficult aspect
+of the development process. Now, the Komodo team has simplified the process into
+easy steps. Through Komodo’s Iguana Core technology (introduced in Part I), the
+entrepreneur can create a new independent blockchain by entering just two simple
+commands in the command prompt of their computer.</p>
+<p>The following steps rely on one of Komodo’s underlying software processes that
+run in the background on a user’s computer. The name of this software is the “Komodo daemon,” or <code class="docutils literal notranslate"><span class="pre">komodod</span></code>, for short. <code class="docutils literal notranslate"><span class="pre">komodod</span></code> is rooted in Iguana Core technology.</p>
+<div class="section" id="the-first-command-to-create-a-new-coin">
+<h3>The First Command to Create a New Coin<a class="headerlink" href="#the-first-command-to-create-a-new-coin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodod -ac_name=[ENTREPRENEUR&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -gen
+</pre></div>
+</div>
+<p>The first part of the command, <code class="docutils literal notranslate"><span class="pre">./komodod</span></code>, initiates a new instance of Komodod.</p>
+<p>By default, the initial <code class="docutils literal notranslate"><span class="pre">./komodod</span></code> command executed alone would launch the
+Komodo main chain, KMD, on the user’s computer. However, the next part of the
+command tells Komodod to behave differently.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-ac_name=[ENTREPRENEUR&#39;S COIN]
+</pre></div>
+</div>
+<p>This command tells Komodod to look for a coin with the inserted name.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-ac_supply<span class="o">=[</span>TOTAL COIN SUPPLY<span class="o">]</span>
+</pre></div>
+</div>
+<p>This tells Komodod how many total coins there should be in this chain.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-gen
+</pre></div>
+</div>
+<p>This tells Komodod that the user desires to mine this network.</p>
+<p>The underlying code of Iguana Core can now make several decisions. First, it will
+check its connection to the Komodo ecosystem to see if there is a coin by the name
+of <a href="#id1"><span class="problematic" id="id2">*</span></a>ENTREPRENEUR’S COIN+, having a coin supply of [TOTAL COIN SUPPLY]. If
+the coin name and total supply are not found, Komodod will assume that the user
+is attempting to create a new coin, and the [-gen] command tells Komodod that the
+user wants to mine it.</p>
+<p>Komodod now begins the automated process of creating a new asset chain in the
+Komodo ecosystem. Komodod will first make a fresh and empty clone of the KMD
+main chain (though it will not yet generate the actual coins), with only a few differences to the underlying nature of the chain.</p>
+</div>
+<div class="section" id="the-features-of-the-new-asset-chain">
+<h3>The Features of the New Asset Chain<a class="headerlink" href="#the-features-of-the-new-asset-chain" title="Permalink to this headline">¶</a></h3>
+<p>There are several primary differences between an asset chain and the main Komodo
+chain. For example, the asset chain will not automatically generate 5.1% rewards for
+all wallet addresses holding coins, unlike the main chain. Furthermore, the asset
+chain’s dPoW consensus mechanism is built to notarize to the KMD main chain (as
+explained in <a class="reference external" href="section-1.html">Part I</a>).</p>
+<p>Some of the differences reveal strong advantages held by members of the Komodo
+ecosystem. By design, this asset chain is capable of automatically adopting any updates that the Komodo core development team add to the framework. The asset chain
+also has a built-in capacity within the framework to allow the entrepreneur to code
+new rules.</p>
+<p>For example, the entrepreneur may decide not to use a PoW consensus mechanism,
+but may instead prefer PoS (discussed in <a class="reference external" href="section-1.html">Part I</a>. Other changes can also be made, according to the entrepreneur’s imagination and developer knowledge. So long as
+the new code that the entrepreneur adds to the asset chain does not interfere with
+the overall framework, the asset chain will smoothly integrate with the rest of the Komodo ecosystem. We provide more details on this topic in Part V’s section regarding
+smart contracts.</p>
+<p>For the purposes of our discussion, this new asset chain is otherwise the same as
+the Komodo main chain, including the features to communicate natively with other
+blockchains via BarterDEX. The reader may note that this new Komodo asset chain
+is not a colored-token running on top of a parent blockchain, as is often the case in
+other blockchain ecosystems (consider the ERC20 token of the Ethereum platform).
+Instead, this asset chain is an entirely unique and independent blockchain unto itself.</p>
+<p>This empowers the entrepreneur with significant advantages over other blockchain
+ecosystems. The asset chain can run on its own nodes, act according to whatever
+rules the entrepreneur can imagine, and can scale according to its own audience.
+Should an asset chain in the Komodo network experience a sudden explosion of
+activity, the sudden change will not negatively impact the overall Komodo ecosystem.
+This independence grants a significant competitive advantage in the form of overall
+security, speed, and ease of use.</p>
+<p>Consider the advantage of developing an entrepreneurial product as a fully independent blockchain. Should the entrepreneur desire at a future point to leave the
+Komodo ecosystem for any reason, they are free to take their blockchain product
+with them.</p>
+</div>
+<div class="section" id="generating-and-mining-the-new-coins">
+<h3>Generating and Mining the New Coins<a class="headerlink" href="#generating-and-mining-the-new-coins" title="Permalink to this headline">¶</a></h3>
+<p>Let us return now to the moment after the entrepreneur executes the first command in the command prompt, and Komodod creates a fresh and empty clone of
+the Komodo main chain. While the instance of the Komodod program (running on
+the entrepreneur’s local computer device) will create the necessary code for the new
+asset chain, Komodod will not yet generate the coin supply itself. Komodod instead
+will wait for the next few steps to occur.</p>
+<p>The reason for the wait is that a blockchain’s essence depends upon existing not
+in isolation, but in a network of multiple devices connected. This is the nature of
+decentralization. Komodod will wait until it receives a signal from another device,
+thus indicating that it has a peer with which to form the asset-chain network.</p>
+<div class="section" id="the-entire-coin-supply-is-distributed-in-the-genesis-block">
+<h4>The Entire Coin Supply is Distributed in the Genesis Block<a class="headerlink" href="#the-entire-coin-supply-is-distributed-in-the-genesis-block" title="Permalink to this headline">¶</a></h4>
+<p>It is imperative to note that in the Komodod process, the entire coin supply is
+created and distributed immediately to the device that mines the first block, the Genesis Block. The code performs this distribution as a one-time reward for discovering the first valid block hash (as explained in <a class="reference external" href="section-1.html">Part I</a>). Due to the sensitive nature of this
+step, we recommend that the entrepreneur use a Virtual Private Server (VPS) service.
+This allows two secure devices to connect to each other with little, if any, risk of a
+third-party actor mining the first block (which would thus enable a would-be thief to
+acquire the entire coin supply before distribution).</p>
+<p>Having established a secure connection with a second device, the entrepreneur will
+enter the following command on the second device.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodod -ac_name=[ENTREPRENUER&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -addnode=[INSERT IP ADDRESS OF FIRST DEVICE]
+</pre></div>
+</div>
+<p>Note that the first three elements of the command, [./komodod], [-ac_name], and
+[-ac_supply], are the same. It is important that the parameters inserted into these
+commands match exactly. Otherwise, the instances of Komodod running on the separate devices will ignore each other, and the coin will not be mined.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the second VPS, the [-gen] command is not present. In this circumstance, we are assuming</p>
+</div>
+<p>that the entrepreneur wants to capture the entire coin supply on the first device. Technically
+speaking, assuming the entrepreneur has ownership over both devices, it does not matter if
+both devices initiate the [-gen] command. Both devices will attempt to mine the first block and
+the superior device will receive the coin supply.</p>
+<p>There is another key difference in the command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-addnode<span class="o">=[</span>INSERT IP ADDRESS OF FIRST DEVICE<span class="o">]</span>
+</pre></div>
+</div>
+<p>An “IP address” can be compared to a human being’s home mailing address, where
+the IP address is designed for computers to be able to geographically find each other.</p>
+<p>With the execution of the IP address command, the second device knows to look
+across the available connection (the Internet, VPS service, etc.) for the first device,
+which is already running an instance of Komodod and the new coin. The command
+here simply tells the computer the proper IP address of the first device.</p>
+<p>As soon as these two devices connect, having all the proper Komodod software
+running and set in place, the mining begins. One of the devices will mine the first
+block and instantly receive the total coin supply of the entire blockchain into the
+user’s chosen wallet.</p>
+<p>Both devices sync this information to each other, and the <a href="#id5"><span class="problematic" id="id6">*</span></a>ENTREPRENEUR’S
+COIN+ now exists in the world. The entrepreneur can also add more and more de-
+vices to the network.</p>
+</div>
+</div>
+<div class="section" id="notarizing-to-the-komodo-main-chain">
+<h3>Notarizing to the Komodo Main Chain<a class="headerlink" href="#notarizing-to-the-komodo-main-chain" title="Permalink to this headline">¶</a></h3>
+<p>To receive the security of the dPoW consensus mechanism, the entrepreneur simply
+needs to have the elected notary nodes add the <a href="#id7"><span class="problematic" id="id8">*</span></a>ENTREPENEUR’S COIN+ to their internal list of coins to notarize. This will empower the entrepreneur’s product with
+the same verifiable and decentralized security of the Komodo parent chain.</p>
+<p>The process of adding a new notarization service can be executed by the notary
+nodes with just a simple command. While we are at this early stage of development,
+this sign-up process for new dICO products is not yet automated. In the future, we
+intend to automate as much of this process as possible.</p>
+<p>There is a fee for receiving notarization services. This helps to cover the business
+costs associated with notarization (recall that all notarizations are financial transactions, by nature).</p>
+<p>We already have over fifteen partners successfully notarizing to the Komodo main
+chain. We are actively seeking more partners, and we encourage the reader to reach
+out to our team directly with inquiries.</p>
+<p>Entrepreneurs are thus able to use the asset chain’s native dPoW consensus mechanism to notarize to the Komodo main chain to create a secure backup of the coin’s history. Even in the event of an attack at this early state of existence the entrepreneur can
+rest assured that their product will survive, so long as one copy of the blockchain’s
+history exists.</p>
+<p>Everything is set on the backend for the entrepreneur, and they are now fully prepared to begin the dICO process. Naturally, we understand that for many potential
+entrepreneurs in the Komodo ecosystem, this process is unfamiliar territory. We encourage interested entrepreneurs to reach out to our team for guidance during development.</p>
+</div>
+</div>
+<div class="section" id="the-distribution-of-coins">
+<h2>The Distribution of Coins<a class="headerlink" href="#the-distribution-of-coins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-trials-and-travails-of-the-centralized-ico-method">
+<h3>The Trials and Travails of the Centralized ICO Method<a class="headerlink" href="#the-trials-and-travails-of-the-centralized-ico-method" title="Permalink to this headline">¶</a></h3>
+<p>Previously, the entrepreneur at this point would have been required to go through
+a centralized ICO process.</p>
+<p>This could have required several cumbersome and possibly dangerous steps. For
+example, the entrepreneur would begin gathering cryptocurrencies from their audience to personally hold in escrow while the process of matching purchases to the new
+blockchain coin were verified.</p>
+<p>To distribute these coins, the entrepreneur had two primary options. They could
+have created and distributed a digital software wallet capable of holding the entrepreneur’s coins. This would requiretheir audience to download the software. The
+entrepreneur would then have to send all the appropriate coins to each wallet address,
+according to the process they established during their ICO.</p>
+<p>Or, the entrepreneur would have to make formal arrangements with another service
+to manage this process, such as with a centralized exchange. This would require a successful negotiation with this third party, likely paying fees as a part of the agreement.</p>
+<p>The entrepreneur would then be required to act within the centralized exchange’s
+arbitrary framework.</p>
+<p>The centralized ICO process can be arduous and, at times, disastrous.</p>
+</div>
+<div class="section" id="enter-the-dico">
+<h3>Enter the dICO<a class="headerlink" href="#enter-the-dico" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="powered-by-komodos-barterdex-jumblr-technology">
+<h4>Powered by Komodo’s BarterDEX &amp; Jumblr Technology<a class="headerlink" href="#powered-by-komodos-barterdex-jumblr-technology" title="Permalink to this headline">¶</a></h4>
+<p>The Komodo dICO model is an extension of Komodo’s BarterDEX technology.
+BarterDEX is an atomic- swap powered, decentralized exchange. It enables users to
+directly exchange cryptocurrencies from one person to another without third-party
+involvement (i.e. no centralized exchanges, escrow services, vouchers, etc.). Furthermore, as the dICO model is entirely decentralized, anyone can use it at will. There are
+no centralized authority figures capable of creating artificial control points that can
+be manipulated at the expense of the users. Please turn to <a class="reference external" href="section-3.html">Part III</a> for more details.</p>
+<p>To begin the distribution process, the entrepreneur first chooses how many nodes
+they would like to use for the distribution. Nodes can be any type of machine capable
+of connecting to BarterDEX. Typically, a small-business entrepreneur may choose to
+use server machines. Server capacity can be rented online, and the servers can be
+distributed geographically throughout the world, if desired.</p>
+<p>While renting a multiplicity of servers may be the method of choice for an estab-
+lished small-business, it is not a requirement. An owner of an even smaller business,
+operating on a low budget, can simply use their own computer(s), geographically
+stationed nearby for convenience. On the other hand, a large corporation could use
+the server capacity they already own. The number and strength of the machines is a
+choice made by the entrepreneur.</p>
+<p>Having decided the method of distribution, the entrepreneur will then prepare the
+total supply of coins. (We are assuming the coins are still located on the first device
+that mined the entrepreneur’s genesis block.) The entrepreneur will first break down
+the total collection of coins into smaller digital pouches. These small bags of coins
+are ultimately what will be traded on BarterDEX with their audience. The size of
+the bags is chosen by the entrepreneur, and therefore the entrepreneur can choose a
+size that is agreeable to their outlook on any KYC legal requirements. For a detailed
+explanation of the process of breaking down the total collection into smaller bags of
+coins, we also recommend reading about UTXO technology in <a class="reference external" href="section-3.html">Part III</a> of this paper.</p>
+<p>Having created these bags of coins, the entrepreneur then sends them to all chosen nodes throughout the BarterDEX network. Coins are distributed to each node’s
+wallet(s) by a normal transaction.
+With the coins distributed as desired, the entrepreneur sets the time and date when
+each bag of coins will be available for purchase. When a bag of coins becomes available on BarterDEX for trading, members of the Komodo ecosystem simply purchase the coins. Please see our discussion on atomic- swap technology in <a class="reference external" href="section-3.html">Part III</a> for more
+details.</p>
+</div>
+<div class="section" id="the-many-solutions-of-the-dico-model-security-privacy-decentralization-and-freedom">
+<h4>The Many Solutions of the dICO Model: Security, Privacy, Decentralization, and Freedom<a class="headerlink" href="#the-many-solutions-of-the-dico-model-security-privacy-decentralization-and-freedom" title="Permalink to this headline">¶</a></h4>
+<p>This method of conducting a decentralized initial coin offering mitigates and cir-
+cumvents the issues found in a centralized ICO. The entire process is conducted in a
+decentralized manner. The dICO entrepreneur has direct access to their audience, as
+there are no centralized human authorities acting as middlemen.</p>
+<p>Because the bags of coins can be distributed across a vast range of nodes, and because the entrepreneur can program the time at which each bag of coins becomes
+available, it is possible to prevent a “whale” from seizing a majority control in one
+swooping moment of the dICO. The whale will have to compete to purchase their desired amount one transaction at a time, just like the other members of the ecosystem.</p>
+<p>Furthermore, BarterDEX has advanced trading features that provide additional
+whale resistance. For example, BarterDEX can perform ten to twenty trades at once,
+unlike a normal node in the typical ICO model. Therefore, even if the whale were able
+to place large orders on every node of a dICO, BarterDEX would still be performing
+orders simultaneously for other members of the Komodo ecosystem.</p>
+<p>Concerning theft, the dICO provides solutions to both methods of theft in the centralized ICO. Unlike the centralized ICO, once the distribution of the bags takes place
+the effect of their distribution adds a layer of security from a would-be hacker. The
+hacker can only steal funds at the node they manage to penetrate. Were the hacker
+to steal coins before the actual dICO, the entrepreneur would have the option to simply create a <a href="#id12"><span class="problematic" id="id13">*</span></a>NEW ENTREPRENEUR’S COIN+ again, without losing any personal
+wealth.</p>
+<p>Furthermore, since the trades happen instantaneously with each bag available for
+sale, the entrepreneur is only in possession of either their own <a href="#id14"><span class="problematic" id="id15">*</span></a>ENTREPRENEUR’S
+COIN+, or the cryptocurrency funds provided by the dICO participants—but not
+both. The entrepreneur is never at risk of losing both their own funds and the funds
+of their audience, which is a strong advantage over today’s ICO model.</p>
+<p>Regarding human error, should one of the node’s databases be corrupted by acci-
+dent or hardware failure, only one node’s coin supply is lost.</p>
+<p>Since the coins are immediately available on the BarterDEX exchange for trading,
+the entrepreneur’s audience has an immediate trading market. This stands in contrast
+to today’s ICO model, where users often wait weeks or even months before liquidity
+for their ICO product arises in a centralized exchange.</p>
+<p>Finally, through Jumblr technology, participants have the option of privacy when
+purchasing the dICO product. This enables them to support the crowdsourcing efforts
+of the entrepreneur within their inherent right to barter in private.</p>
+<p>Upon conclusion of the distribution of the dICO coin supply the entrepreneur
+has successfully and immediately completed all the crowdsourcing-related steps that
+could have taken months in today’s typical ICO model.</p>
+<p>Komodo’s dICO model is significantly easier, freer from manipulation, more flexible, and more secure.</p>
+</div>
+</div>
+</div>
+</div>
+
 
            </div>
            
