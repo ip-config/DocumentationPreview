@@ -222,7 +222,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Abstract (BarterDEX)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="section-4.html">Komodo’s Native Privacy Feature: Jumblr</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="section-4.html">Komodo’s Native Privacy Feature: Jumblr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapter7.html">Abstract (Jumblr)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="section-5.html">Additional Information Regarding the Komodo Ecosystem</a><ul>
@@ -2674,6 +2675,8 @@ organically developed during our creation process, it ended up inside the atomic
 itself.</em>)</p>
 <p>The Alice-side and Bob-side protocols have now properly performed their duties,
 and thus completed the most challenging aspect of the atomic-swap protocol. BarterDEX returns control to the humans (or bots acting on their behalf) to send their respective payments.</p>
+<div class="section" id="the-dex-fee-dexfee">
+<h3>The DEX Fee: &lt;dexfee&gt;<a class="headerlink" href="#the-dex-fee-dexfee" title="Permalink to this headline">¶</a></h3>
 <p>People will notice that there is a small &lt;dexfee&gt; required as part of the BarterDEX
 protocol. This is 1/777 of the transaction amount and it is calibrated to make spam
 attacks impractical. By forcing a would-be attacker to spend real money, attacking the
@@ -2704,6 +2707,9 @@ be a highly unusual statistical outlier, and we will therefore want to investiga
 the &lt;dexfee&gt; is just 0.15%. In this manner, we hope to create the expectation that
 0.15% is normal; if the network performs perfectly, on the other hand, users will get
 a blessing in the form of a lower fee, 0.1287%.</p>
+</div>
+<div class="section" id="dealing-with-confirmations">
+<h3>Dealing with Confirmations<a class="headerlink" href="#dealing-with-confirmations" title="Permalink to this headline">¶</a></h3>
 <p>Since BarterDEX is trading permanently on blockchains (as opposed to updating an internal database of vouchers, or managing a proxy-token account balance),
 both sides of the trading pair need to wait and watch as miners on the respective
 blockchains calculate transaction confirmations.</p>
@@ -2720,6 +2726,9 @@ as the number of confirmations the users choose will persist until the process c
 the BarterDEX protocol automatically sets the larger of the two preferences as the requirement for both parties. Furthermore, this feature also includes a &lt;maxconfirms&gt;
 value to prevent one side from specifying an unreasonable or malicious number of
 required confirmations.</p>
+</div>
+<div class="section" id="zero-confirmations">
+<h3>Zero Confirmations<a class="headerlink" href="#zero-confirmations" title="Permalink to this headline">¶</a></h3>
 <p>BarterDEX also supports a high-speed trading mode. Using this feature, a user
 can activate an extremely fast mode of trading: &lt;zeroconf&gt;. This initiates a form of
 atomic-swap trading that does not wait for any confirmations at all. When using this
@@ -2735,6 +2744,9 @@ own organization and develop a trusted network for trading, using the Trust API 
 set each other’s trader profile to Trust = Positive. In such cases, if a user, or a group of
 users, tells the Trust API to set another trader profile to Trust = Negative, that trader’s
 &lt;pubkey&gt; is blacklisted for any of the participating individuals or groups.</p>
+</div>
+<div class="section" id="speed-mode-an-experimental-feature-using-time-locked-deposits">
+<h3>Speed Mode: An Experimental Feature Using Time-Locked Deposits<a class="headerlink" href="#speed-mode-an-experimental-feature-using-time-locked-deposits" title="Permalink to this headline">¶</a></h3>
 <p>Using the &lt;zeroconf&gt; protocol, we developed a new feature for the BarterDEX
 network that is functional, but still experimental. It is called “Speed Mode,” and it
 adds one additional step to the Alice and Bob process.</p>
@@ -2762,11 +2774,17 @@ expiration, at the latest.</p>
 <p>With the security deposit in place, Alice can use the Speed Mode feature to complete a trade in as little as three to five seconds. Note that this feature is new, highly
 experimental, and we recommend users exercise extreme caution when participat-
 ing. If a user cannot activate Speed Mode, BarterDEX defaults to the normal, non-&lt;zeroconf&gt; atomic-swap trading method.</p>
+</div>
+<div class="section" id="realtime-metrics">
+<h3>Realtime Metrics<a class="headerlink" href="#realtime-metrics" title="Permalink to this headline">¶</a></h3>
 <p>Nodes on BarterDEX use Realtime metrics (RTmetrics) to filter the possible candidates for atomic-swap matching. All nodes track global stats via a &lt;stats.log&gt; file.
 This log file allows each node to self-update the list of pending swaps on the network.
 By nature, the BarterDEX protocol has filters that give less priority to nodes that are
 already occupied. Additionally, the Alice-side protocol gives less preference to Bob-side protocols that do not have enough UTXO sizes visible in the orderbook. This is
 a new feature, and we expect to optimize and enhance it in future iterations.</p>
+</div>
+<div class="section" id="orderbook-propagation">
+<h3>Orderbook Propagation<a class="headerlink" href="#orderbook-propagation" title="Permalink to this headline">¶</a></h3>
 <p>When considering how prices compare between two cryptocurrencies, BarterDEX
 uses the convention of “base/rel,” which can be translated as “base currency to rele-
 vant currency.” The price is calculated by determining (base currency)/(relevant currency). The relevant currency is the cryptocurrency Alice is using to make the initial
@@ -2802,8 +2820,10 @@ for an orderbook, which in turn requests the listunspent data for the most likel
 BarterDEX can then propose a “request” offer. In practice, early users on BarterDEX
 can currently experience nearly instantaneous responses, assuming all the parameters
 are properly met.</p>
+</div>
+</div>
 <div class="section" id="the-barterdex-api">
-<h3>The BarterDEX API<a class="headerlink" href="#the-barterdex-api" title="Permalink to this headline">¶</a></h3>
+<h2>The BarterDEX API<a class="headerlink" href="#the-barterdex-api" title="Permalink to this headline">¶</a></h2>
 <p>We created an API model that is the same for all coins—with the obvious exceptions
 of the electrum-API call itself, and within some of the returned JSON files that have
 different calls, such as “listunspent.”</p>
@@ -2822,7 +2842,6 @@ the liquidity taker. For coins using SPV, BarterDEX only supports the liquidity-
 side (for overall network-performance reasons). Also, we assume that any trader with ambitions of being a serious liquidity provider should also be serious enough to
 install the coin daemon for the coins they are trading, as this will increase their speed
 of processing.</p>
-</div>
 <div class="section" id="a-brief-discussion-on-the-future-of-barterdex">
 <h3>A Brief Discussion on the Future of BarterDEX<a class="headerlink" href="#a-brief-discussion-on-the-future-of-barterdex" title="Permalink to this headline">¶</a></h3>
 <p>This concludes a high-level summary of the BarterDEX protocol as created by the

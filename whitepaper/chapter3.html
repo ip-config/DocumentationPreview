@@ -222,7 +222,8 @@
 <li class="toctree-l3"><a class="reference internal" href="chapter6.html">Abstract (BarterDEX)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="section-4.html">Komodo’s Native Privacy Feature: Jumblr</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="section-4.html">Komodo’s Native Privacy Feature: Jumblr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapter7.html">Abstract (Jumblr)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="section-5.html">Additional Information Regarding the Komodo Ecosystem</a><ul>
@@ -1826,6 +1827,8 @@ on Nakamoto’s original design.</p>
 </div>
 <div class="section" id="the-notarization-process">
 <h2>The Notarization Process<a class="headerlink" href="#the-notarization-process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-one-gathering-the-appropriate-data">
+<h3>Step One: Gathering the Appropriate Data<a class="headerlink" href="#step-one-gathering-the-appropriate-data" title="Permalink to this headline">¶</a></h3>
 <p>The process of notarization is simple. Roughly every ten to twenty-five minutes,
 the notary nodes perform a special block hash mined on the Komodo blockchain and
 take note of the overall Komodo blockchain “height” (i.e. the number of total blocks
@@ -1867,6 +1870,9 @@ On the other hand, an incorrect history of the Komodo network will not be able t
 produce the same notarization. Through the automation in the Iguana Core software
 that underlies the Komodo ecosystem, all users will align with the “true” blockchain
 history and ignore any malicious actors’ “false” attempts.</p>
+</div>
+<div class="section" id="step-two-notarizing-the-data-to-a-secure-location">
+<h3>Step Two: Notarizing the Data to a Secure Location<a class="headerlink" href="#step-two-notarizing-the-data-to-a-secure-location" title="Permalink to this headline">¶</a></h3>
 <p>Naturally, for security purposes this number cannot simply be saved to one person’s local computer, or be written down on a piece of paper. Were the number to be
 in such a centralized location, a would-be attacker could simply destroy the backup,
 or replace it with a “false” version. For the number to be useful, it must be placed
@@ -1897,6 +1903,9 @@ argument over the correct notarized marker upon which the ecosystem members
 should rely. The Iguana Core code running at the heart of each user’s Komodo soft-
 ware can continue securing, decentralizing, and distributing the accurate version of
 the Komodo history as though the attack never occurred.</p>
+</div>
+<div class="section" id="step-three-notarizing-the-pow-network-information-back-to-the-kmd-main-chain">
+<h3>Step Three: Notarizing the PoW Network Information Back to the KMD Main Chain<a class="headerlink" href="#step-three-notarizing-the-pow-network-information-back-to-the-kmd-main-chain" title="Permalink to this headline">¶</a></h3>
 <p>One final step remains to complete the loop of security between the KMD main
 chain and the chosen PoW network. The KMD blockchain must record within its own
 records the specific location where it placed this backup into the PoW blockchain.
@@ -1923,8 +1932,10 @@ the most recent iteration. This is favorable for Komodo security, as there is al
 possibility that the chosen PoW network (Bitcoin) could fail. In this event, the notary
 nodes would place their next notarization in a competing PoW network (such as Bitcoin Cash) and the entire Komodo ecosystem would remain secure. The notarizations
 in the failing PoW network would no longer be required to verify ecosystem accuracy.</p>
+</div>
+</div>
 <div class="section" id="understanding-security-and-economic-incentives-in-the-komodo-dpow-network">
-<h3>Understanding Security and Economic Incentives in the Komodo dPoW Network<a class="headerlink" href="#understanding-security-and-economic-incentives-in-the-komodo-dpow-network" title="Permalink to this headline">¶</a></h3>
+<h2>Understanding Security and Economic Incentives in the Komodo dPoW Network<a class="headerlink" href="#understanding-security-and-economic-incentives-in-the-komodo-dpow-network" title="Permalink to this headline">¶</a></h2>
 <p>The nature of mining in the Komodo ecosystem serves as an incentive to motivate
 the notary nodes to perform their job well. This setup is also a principle method
 by which the Komodo ecosystem dramatically reduces the overhead costs necessary
@@ -1940,7 +1951,7 @@ on the other hand, are explained in <a class="reference external" href="section-
 wallet address. This 5.1% reward is given to users out of the funds that would normally be given to a
 Bitcoin miner as a method of minting new Bitcoin coins.)</p>
 <div class="section" id="easy-difficulty-in-dpow-the-key-to-notary-nodes-financial-incentives">
-<h4>“Easy Difficulty” in dPoW: The Key to Notary Nodes’ Financial Incentives<a class="headerlink" href="#easy-difficulty-in-dpow-the-key-to-notary-nodes-financial-incentives" title="Permalink to this headline">¶</a></h4>
+<h3>“Easy Difficulty” in dPoW: The Key to Notary Nodes’ Financial Incentives<a class="headerlink" href="#easy-difficulty-in-dpow-the-key-to-notary-nodes-financial-incentives" title="Permalink to this headline">¶</a></h3>
 <p>The foundational similarity to understand is that with each block header, clues are
 provided for miners to find the next valid block hash. The specific clue, “difficulty,”
 changes with each block header.</p>
@@ -1983,7 +1994,7 @@ farms of specialized equipment for mining. The small CPU of a desktop is no long
 useful, and the time of “easy difficulty” on Bitcoin has passed.</p>
 </div>
 <div class="section" id="the-dpow-system-has-sixty-four-elected-notary-nodes">
-<h4>The dPoW System has Sixty-Four Elected Notary Nodes<a class="headerlink" href="#the-dpow-system-has-sixty-four-elected-notary-nodes" title="Permalink to this headline">¶</a></h4>
+<h3>The dPoW System has Sixty-Four Elected Notary Nodes<a class="headerlink" href="#the-dpow-system-has-sixty-four-elected-notary-nodes" title="Permalink to this headline">¶</a></h3>
 <p>Here is where our dPoW consensus mechanism diverges from the Bitcoin proto-
 col’s limitations. In addition to performing the notarizations of the Komodo ecosystem, notary nodes are also a special type of blockchain miner. They have a certain
 feature in their underlying code that both enables them to maintain an effective and
@@ -1993,7 +2004,7 @@ into the trap of directly competing with other PoW networks for hash-rate securi
 status.</p>
 </div>
 <div class="section" id="each-notary-node-gets-one-chance-per-every-sixty-five-blocks-to-mine-on-easy">
-<h4>Each Notary Node Gets One Chance Per Every Sixty-Five Blocks to Mine on Easy<a class="headerlink" href="#each-notary-node-gets-one-chance-per-every-sixty-five-blocks-to-mine-on-easy" title="Permalink to this headline">¶</a></h4>
+<h3>Each Notary Node Gets One Chance Per Every Sixty-Five Blocks to Mine on Easy<a class="headerlink" href="#each-notary-node-gets-one-chance-per-every-sixty-five-blocks-to-mine-on-easy" title="Permalink to this headline">¶</a></h3>
 <p>Each individual node periodically receives the privilege to mine a block on “easy
 difficulty.” In other words, while the rest of the miners in the Komodo ecosystem
 are mining at a calculated difficulty level, the notary nodes occasionally receive the
@@ -2019,7 +2030,7 @@ the Komodo ecosystem, and to increase the relative value of this daily ~50 KMD
 reward.</p>
 </div>
 <div class="section" id="the-free-for-all-period">
-<h4>The Free-for-All Period<a class="headerlink" href="#the-free-for-all-period" title="Permalink to this headline">¶</a></h4>
+<h3>The Free-for-All Period<a class="headerlink" href="#the-free-for-all-period" title="Permalink to this headline">¶</a></h3>
 <p>Every 2000 blocks, the Iguana Core code removes the easy-difficulty mining ability
 from all notary nodes for a sixty-four-block period. This gives the entire ecosystem the
 chance to freely mine the Komodo blockchain. The primary purpose of the Free-for-
@@ -2029,7 +2040,6 @@ rewards.</p>
 <p>The notary nodes continue the notarization process itself throughout the Free-for-
 All mining period. When the Free-for-All period concludes, the notary nodes regain
 their abilities and resume mining the current chain.</p>
-</div>
 </div>
 </div>
 <div class="section" id="komodos-protective-measures-in-action">
