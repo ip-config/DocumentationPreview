@@ -15,7 +15,7 @@
   
   
   
-    <link rel="canonical" href="https://docs.komodoplatform.comcc/testing.html"/>
+    <link rel="canonical" href="https://docs.komodoplatform.comcc/test-use-write-integrate-cc.html"/>
   
 
   
@@ -30,7 +30,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="List of contracts available" href="contracts-index.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -77,7 +79,7 @@
             
             
               <p class="caption"><span class="caption-text">Quick-Links</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html">Collection of all KomodoPlatform Repositories and Releases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#agama-desktop">Agama (Desktop)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../general/list-all-KomodoPlatform-Project-links.html#source-code">Source code</a></li>
@@ -480,7 +482,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../agama/release-notes/agama-v0.2.36.html">Agama-v0.2.36-Updates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../home-cc.html">Documentation for UTXO based smart-contracts using Komodo’s Custom Consensus Framework</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../home-cc.html">Documentation for UTXO based smart-contracts using Komodo’s Custom Consensus Framework</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="activate-cc-independent-chain.html">How to Activate CryptoConditions on an Existing Komodo based Independent Chain</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="activate-cc-independent-chain.html#example">Example</a></li>
 </ul>
@@ -492,6 +494,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the Contracts on a Komodo based Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#to-test-the-contracts">To test the contracts:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relevant-info">Relevant info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to-add-a-new-contract">To add a new contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development">General guidance on reporting issues on discord (Regarding CryptoConditions and SmartContract development):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contracts-index.html">List of contracts available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rpc/dice.html">Dice RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc/faucet.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc/rewards.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc/tokens.html">Tokens RPC</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index-book-jl.html">How to write UTXO based CryptoConditions contracts for KMD chains - by jl777</a><ul>
@@ -1707,13 +1723,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../home-cc.html">Documentation for UTXO based smart-contracts using Komodo’s Custom Consensus Framework</a> &raquo;</li>
+        
       <li>Using the Contracts on a Komodo based Blockchain</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cc/testing.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cc/test-use-write-integrate-cc.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -1731,10 +1749,10 @@
 <p>Currently there are four contracts that can be used on any blockchain created using Komodo. They are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Tokens</li>
-<li>Faucet</li>
-<li>Rewards</li>
-<li>Dice</li>
+<li><a class="reference external" href="rpc/tokens.html">Tokens</a></li>
+<li><a class="reference external" href="rpc/faucet.html">Faucet</a></li>
+<li><a class="reference external" href="rpc/rewards.html">Rewards</a></li>
+<li><a class="reference external" href="rpc/dice.html">Dice</a></li>
 </ul>
 </div></blockquote>
 <p>To use the contracts on the blockchain, the start command of the chain should contain the parameter <code class="docutils literal notranslate"><span class="pre">-ac-cc</span></code> and it should be greater than <cite>0</cite>.</p>
@@ -1745,7 +1763,8 @@
 * <span class="k">if</span> N &gt;<span class="o">=</span> <span class="m">101</span>, <span class="k">then</span> it forms a cluster of all the chains with the same N value where the base tokens in all the chains in that cluster are fungible via the burn protocol
 </pre></div>
 </div>
-<p>To test the contracts:</p>
+<div class="section" id="to-test-the-contracts">
+<h2>To test the contracts:<a class="headerlink" href="#to-test-the-contracts" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><blockquote>
 <div><ul class="simple">
@@ -1784,12 +1803,70 @@ git checkout jl777
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="relevant-info">
+<h2>Relevant info:<a class="headerlink" href="#relevant-info" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Source repo: <a class="reference external" href="https://github.com/jl777/komodo">jl777/komodo</a> (Latest code on cc and new contracts are being added to the <code class="docutils literal notranslate"><span class="pre">FSM</span></code> branch.)</li>
+<li>Source directory: <a class="reference external" href="https://github.com/jl777/komodo/tree/FSM/src/cc">jl777/komodo:src/cc&#64;FSM</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="useful-links">
+<h3>Useful Links:<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h3>
+<p>(Going through the comments in the following files gives a pretty good overview)</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://raw.githubusercontent.com/jl777/komodo/FSM/src/cc/assets.cpp">jl777/komodo:src/cc/assets.cpp&#64;FSM (raw)</a></li>
+<li><a class="reference external" href="https://raw.githubusercontent.com/jl777/komodo/FSM/src/cc/dice.cpp">jl777/komodo:src/cc/dice.cpp&#64;FSM (raw)</a></li>
+<li><a class="reference external" href="https://raw.githubusercontent.com/jl777/komodo/FSM/src/cc/rewards.cpp">jl777/komodo:src/cc/rewards.cpp&#64;FSM (raw)</a></li>
+<li><a class="reference external" href="https://raw.githubusercontent.com/jl777/komodo/FSM/src/cc/token.cpp">jl777/komodo:src/cc/token.cpp&#64;FSM (raw)</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="to-add-a-new-contract">
+<h2>To add a new contract<a class="headerlink" href="#to-add-a-new-contract" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Add EVAL_CODE to eval.h</li>
+<li>Initialize the variables in the CCinit function below</li>
+<li>Write a Validate function to reject any unsanctioned usage of vin/vout</li>
+<li>Make helper functions to create rawtx for RPC functions</li>
+<li>Add rpc calls to rpcserver.cpp and rpcserver.h and in one of the rpc.cpp files</li>
+<li>Add the new .cpp files to src/Makefile.am</li>
+</ol>
+</div></blockquote>
+<p>1, 2 and 6 are not even coding tasks. 4 and 5 are non-consensus time, mostly dealing with JSON. 3 is the main work needed, which makes sense as a different 3 is what makes it a different contract. A lot of a contracts can use slightly modified functions from the other CC contracts. So the best way to do a new one would be to pick the one that is closest to what you want and start morphing it.</p>
+</div>
+<div class="section" id="general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development">
+<h2>General guidance on reporting issues on discord (Regarding CryptoConditions and SmartContract development):<a class="headerlink" href="#general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>the specific chain parameters so anyone can connect to it</li>
+<li>the <strong>EXACT</strong> rpc call and parameters you used</li>
+<li><strong>the most important!</strong> the raw tx generated</li>
+<li>clear description of why you think it is a bug. for now you need to look at the raw tx details to make sure all vins are valid, signed and all vouts are sane.</li>
+<li>Please don’t post things like “I tried X and it didnt work” as that does not help at all at this stage. These are raw transaction level things and until everything works, things won’t work at the higher level.</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="https://komodoplatform.com/discord">Discord Invite</a></p>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contracts-index.html" class="btn btn-neutral float-right" title="List of contracts available" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="faq.html" class="btn btn-neutral" title="Frequently Asked Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

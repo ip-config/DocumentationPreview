@@ -494,6 +494,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cc/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cc/test-use-write-integrate-cc.html">Using the Contracts on a Komodo based Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cc/test-use-write-integrate-cc.html#to-test-the-contracts">To test the contracts:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/test-use-write-integrate-cc.html#relevant-info">Relevant info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/test-use-write-integrate-cc.html#to-add-a-new-contract">To add a new contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/test-use-write-integrate-cc.html#general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development">General guidance on reporting issues on discord (Regarding CryptoConditions and SmartContract development):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cc/contracts-index.html">List of contracts available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cc/rpc/dice.html">Dice RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/rpc/faucet.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/rpc/rewards.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/rpc/tokens.html">Tokens RPC</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cc/index-book-jl.html">How to write UTXO based CryptoConditions contracts for KMD chains - by jl777</a><ul>
@@ -1760,14 +1774,14 @@ commands in the command prompt of their computer.</p>
 run in the background on a user’s computer. The name of this software is the “Komodo daemon,” or <code class="docutils literal notranslate"><span class="pre">komodod</span></code>, for short. <code class="docutils literal notranslate"><span class="pre">komodod</span></code> is rooted in Iguana Core technology.</p>
 <div class="section" id="the-first-command-to-create-a-new-coin">
 <h3>The First Command to Create a New Coin<a class="headerlink" href="#the-first-command-to-create-a-new-coin" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodod -ac_name=[ENTREPRENEUR&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -gen
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">komodod</span> <span class="o">-</span><span class="n">ac_name</span><span class="o">=</span><span class="p">[</span><span class="n">ENTREPRENEUR</span><span class="s1">&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -gen</span>
 </pre></div>
 </div>
 <p>The first part of the command, <code class="docutils literal notranslate"><span class="pre">./komodod</span></code>, initiates a new instance of Komodod.</p>
 <p>By default, the initial <code class="docutils literal notranslate"><span class="pre">./komodod</span></code> command executed alone would launch the
 Komodo main chain, KMD, on the user’s computer. However, the next part of the
 command tells Komodod to behave differently.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-ac_name=[ENTREPRENEUR&#39;S COIN]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">ac_name</span><span class="o">=</span><span class="p">[</span><span class="n">ENTREPRENEUR</span><span class="s1">&#39;S COIN]</span>
 </pre></div>
 </div>
 <p>This command tells Komodod to look for a coin with the inserted name.</p>
@@ -1843,7 +1857,7 @@ third-party actor mining the first block (which would thus enable a would-be thi
 acquire the entire coin supply before distribution).</p>
 <p>Having established a secure connection with a second device, the entrepreneur will
 enter the following command on the second device.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodod -ac_name=[ENTREPRENUER&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -addnode=[INSERT IP ADDRESS OF FIRST DEVICE]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">komodod</span> <span class="o">-</span><span class="n">ac_name</span><span class="o">=</span><span class="p">[</span><span class="n">ENTREPRENUER</span><span class="s1">&#39;S COIN] -ac_supply=[TOTAL COIN SUPPLY] -addnode=[INSERT IP ADDRESS OF FIRST DEVICE]</span>
 </pre></div>
 </div>
 <p>Note that the first three elements of the command, [./komodod], [-ac_name], and

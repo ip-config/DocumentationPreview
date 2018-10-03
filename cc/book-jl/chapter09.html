@@ -494,6 +494,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test-use-write-integrate-cc.html">Using the Contracts on a Komodo based Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#to-test-the-contracts">To test the contracts:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#relevant-info">Relevant info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#to-add-a-new-contract">To add a new contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development">General guidance on reporting issues on discord (Regarding CryptoConditions and SmartContract development):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contracts-index.html">List of contracts available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/dice.html">Dice RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/faucet.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/rewards.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/tokens.html">Tokens RPC</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index-book-jl.html">How to write UTXO based CryptoConditions contracts for KMD chains - by jl777</a><ul class="current">
@@ -1769,13 +1783,13 @@ vout.n-1: opreturn <span class="s1">&#39;E&#39;</span> sbits fundingtxid hentrop
 </div>
 <div class="section" id="bet">
 <h2>bet<a class="headerlink" href="#bet" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vin.0: entropy txid from house (must validate vin0 of &#39;E&#39;)
-vins.1+: normal inputs
-vout.0: CC vout for locked entropy
-vout.1: CC vout for locked bet
-vout.2: tag for bettor&#39;s address (txfee + odds)
-vout.3: change
-vout.n-1: opreturn &#39;B&#39; sbits fundingtxid entropy
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vin</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span> <span class="n">entropy</span> <span class="n">txid</span> <span class="kn">from</span> <span class="nn">house</span> <span class="p">(</span><span class="n">must</span> <span class="n">validate</span> <span class="n">vin0</span> <span class="n">of</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">vins</span><span class="o">.</span><span class="mi">1</span><span class="o">+</span><span class="p">:</span> <span class="n">normal</span> <span class="n">inputs</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span> <span class="n">CC</span> <span class="n">vout</span> <span class="k">for</span> <span class="n">locked</span> <span class="n">entropy</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">1</span><span class="p">:</span> <span class="n">CC</span> <span class="n">vout</span> <span class="k">for</span> <span class="n">locked</span> <span class="n">bet</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">2</span><span class="p">:</span> <span class="n">tag</span> <span class="k">for</span> <span class="n">bettor</span><span class="s1">&#39;s address (txfee + odds)</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">3</span><span class="p">:</span> <span class="n">change</span>
+<span class="n">vout</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">opreturn</span> <span class="s1">&#39;B&#39;</span> <span class="n">sbits</span> <span class="n">fundingtxid</span> <span class="n">entropy</span>
 </pre></div>
 </div>
 </div>

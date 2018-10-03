@@ -494,6 +494,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test-use-write-integrate-cc.html">Using the Contracts on a Komodo based Blockchain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#to-test-the-contracts">To test the contracts:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#relevant-info">Relevant info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#to-add-a-new-contract">To add a new contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-use-write-integrate-cc.html#general-guidance-on-reporting-issues-on-discord-regarding-cryptoconditions-and-smartcontract-development">General guidance on reporting issues on discord (Regarding CryptoConditions and SmartContract development):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contracts-index.html">List of contracts available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/dice.html">Dice RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/faucet.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/rewards.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpc/tokens.html">Tokens RPC</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index-book-jl.html">How to write UTXO based CryptoConditions contracts for KMD chains - by jl777</a><ul class="current">
@@ -1809,10 +1823,10 @@ vout.n-1: opreturn with oracletxid, pubkey and price per data point
 </div>
 <div class="section" id="subscribe">
 <h3>subscribe<a class="headerlink" href="#subscribe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vins.*: normal inputs
-vout.0: subscription fee to publishers CC address
-vout.1: change, if any
-vout.n-1: opreturn with oracletxid, registered provider&#39;s pubkey, amount
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vins</span><span class="o">.*</span><span class="p">:</span> <span class="n">normal</span> <span class="n">inputs</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span> <span class="n">subscription</span> <span class="n">fee</span> <span class="n">to</span> <span class="n">publishers</span> <span class="n">CC</span> <span class="n">address</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">1</span><span class="p">:</span> <span class="n">change</span><span class="p">,</span> <span class="k">if</span> <span class="nb">any</span>
+<span class="n">vout</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">opreturn</span> <span class="k">with</span> <span class="n">oracletxid</span><span class="p">,</span> <span class="n">registered</span> <span class="n">provider</span><span class="s1">&#39;s pubkey, amount</span>
 </pre></div>
 </div>
 </div>
