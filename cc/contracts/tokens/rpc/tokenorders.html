@@ -1783,6 +1783,172 @@
             
   <div class="section" id="tokenorders">
 <h1>tokenorders<a class="headerlink" href="#tokenorders" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="displays-the-orderbook">
+<h2>Displays the orderbook<a class="headerlink" href="#displays-the-orderbook" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage">
+<h3>Usage:<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tokenorders</span> <span class="pre">[tokenid]</span></code></p>
+</div>
+<div class="section" id="info-to-keep-in-mind">
+<h3>Info to keep in mind:<a class="headerlink" href="#info-to-keep-in-mind" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fill</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">offer</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">fill</span>
+<span class="n">Ask</span><span class="p">:</span> <span class="s1">&#39;s&#39;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">offer</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">ask</span>
+<span class="n">fillbid</span> <span class="k">for</span> <span class="n">bid</span>
+<span class="n">fillask</span> <span class="k">for</span> <span class="n">ask</span>
+</pre></div>
+</div>
+<p>If you place an offer, until someone fills the order, it just sits there.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buy</span> <span class="n">offer</span><span class="p">,</span> <span class="n">bid</span>
+<span class="n">tokenbid</span> <span class="o">-&gt;</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">tokenbidfill</span> <span class="o">-&gt;</span> <span class="s1">&#39;B&#39;</span>
+<span class="n">You</span> <span class="n">place</span> <span class="n">a</span> <span class="n">buy</span> <span class="n">order</span> <span class="k">with</span> <span class="s1">&#39;b&#39;</span>
+</pre></div>
+</div>
+<p>Someone else fills it with ‘B’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sell</span> <span class="n">offer</span><span class="p">,</span> <span class="n">ask</span> <span class="n">tokenask</span> <span class="o">-&gt;</span> <span class="s1">&#39;s&#39;</span>
+<span class="n">tokenaskfill</span> <span class="o">-&gt;</span> <span class="s1">&#39;S&#39;</span>
+<span class="n">You</span> <span class="n">place</span> <span class="n">a</span> <span class="n">sell</span> <span class="n">order</span> <span class="k">with</span> <span class="s1">&#39;s&#39;</span>
+<span class="n">Someone</span> <span class="k">else</span> <span class="n">fills</span> <span class="n">it</span> <span class="k">with</span> <span class="s1">&#39;S&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="show-all-available-orders">
+<h2>Show all available orders<a class="headerlink" href="#show-all-available-orders" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-command">
+<h3>Example Command:<a class="headerlink" href="#example-command" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST tokenorders
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<h3>Output:<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;b9d305e9b6a82e715efce9b6244cc15fef131baf1893a7eb45b199c23b3fb806&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;45b3f7874fc4a2699729a9792bc7679f6b5f11035a29ad9f661425b19534dd1d&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;totalrequired&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;d4643ce47e9799681a4549468d47c85337367f0ef2733afe1d79c50175e6ae32&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;R9sDyKt2kW5uJaoZT6GF9e3WRbGioBuhoZ&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;e7d034fb7dbad561c9a86dcbcc64aa89e1d311891b4e7c744280b7de13b1186f&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;0909df82ade3193c9a630dd80947141f34489732e9a2f8346790304ebbdcc251&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;R9sDyKt2kW5uJaoZT6GF9e3WRbGioBuhoZ&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;e7d034fb7dbad561c9a86dcbcc64aa89e1d311891b4e7c744280b7de13b1186f&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;a8d60a3ce429ccb885ad445e7a4534130a35d2424d1883c6513d0f4da2fe9a92&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;totalrequired&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mf">1.5</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;03e118fc442a223df4dd87add64f142e1bfd99baee94c8be26bc77ed809d50a4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;R9sDyKt2kW5uJaoZT6GF9e3WRbGioBuhoZ&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;e7d034fb7dbad561c9a86dcbcc64aa89e1d311891b4e7c744280b7de13b1186f&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="show-orders-for-specific-token">
+<h2>Show orders for specific token<a class="headerlink" href="#show-orders-for-specific-token" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Usage:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tokenorders</span> <span class="pre">[tokenid]</span></code></p>
+</div>
+<div class="section" id="id2">
+<h3>Example Command:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST tokenorders c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Output:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;b9d305e9b6a82e715efce9b6244cc15fef131baf1893a7eb45b199c23b3fb806&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;9dabd8c01bb7d59455b64fe100617149c20cb4520d266183686aa4986fd3021d&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;totalrequired&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;45b3f7874fc4a2699729a9792bc7679f6b5f11035a29ad9f661425b19534dd1d&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;totalrequired&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;funcid&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;a8d60a3ce429ccb885ad445e7a4534130a35d2424d1883c6513d0f4da2fe9a92&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;bidamount&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;origaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;RQymbXA8FfWw2AaHv7oC8JRKo9W5HkFVMm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbc34e6517c483afc910a3b0585c40da5c09b7c5d2d9757c5c5075e2d41b59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;totalrequired&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mf">1.5</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 

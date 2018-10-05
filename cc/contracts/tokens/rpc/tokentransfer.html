@@ -1783,6 +1783,147 @@
             
   <div class="section" id="tokentransfer">
 <h1>tokentransfer<a class="headerlink" href="#tokentransfer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transfer-or-send-token">
+<h2>Transfer or send token<a class="headerlink" href="#transfer-or-send-token" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="step-1-create-the-rawtransaction-tokentransfer-tokenid-destpubkey-amount">
+<h2>Step 1. Create the rawtransaction <code class="docutils literal notranslate"><span class="pre">tokentransfer</span> <span class="pre">tokenid</span> <span class="pre">destpubkey</span> <span class="pre">amount</span></code><a class="headerlink" href="#step-1-create-the-rawtransaction-tokentransfer-tokenid-destpubkey-amount" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-command">
+<h3>Example Command:<a class="headerlink" href="#example-command" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST tokentransfer e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc66 02ebc786cb83de8dc3922ab83c21f3f8a2f3216940c3bf9da43ce39e2a3a882c92 <span class="m">500000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<h3>Output:<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;01000000023b61e44ce3cedf536b52d8da11faacd041494a078e971551ed4e2bd496bc8da1000000006a4730440220111c67172740c0c2556979fdf84639ba299ff22586ebd220f25aa301f029003f02203da97a2575c0ed1b309774309f5dc952ee305a46cd83e95eae99e3564a1772f6012103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcffffffff66cc65f38d7e878d312386777c4f049f738b8894353c30108f7fe4ca515489e4000000007b4c79a276a072a26ba067a565802103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc8140c875a14edcbece61a6c18721398c927dc1e4509863e075b3922a8e3a2da6848e037142436e9102b529ee93a9ec618a4c67b63c52790d71812bb94179056913bba100af038001e3a10001ffffffff0420a1070000000000302ea22c8020541be9f843b476373fc18d8c8fab59c98c2c009f49c07fa66b7b431e4142feae8103120c008203000401cce028933b00000000302ea22c8020bc485b86ffd067abe520c078b74961f6b25e4efca6388c6bfd599ca3f53d8dae8103120c008203000401cc28b9486cb2430000232103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcac0000000000000000246a22e374e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc6600000000&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-2-send-broadcast-raw-transaction-hex">
+<h2>Step 2. Send/broadcast raw transaction hex<a class="headerlink" href="#step-2-send-broadcast-raw-transaction-hex" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Example Command:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST sendrawtransaction 01000000023b61e44ce3cedf536b52d8da11faacd041494a078e971551ed4e2bd496bc8da1000000006a4730440220111c67172740c0c2556979fdf84639ba299ff22586ebd220f25aa301f029003f02203da97a2575c0ed1b309774309f5dc952ee305a46cd83e95eae99e3564a1772f6012103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcffffffff66cc65f38d7e878d312386777c4f049f738b8894353c30108f7fe4ca515489e4000000007b4c79a276a072a26ba067a565802103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc8140c875a14edcbece61a6c18721398c927dc1e4509863e075b3922a8e3a2da6848e037142436e9102b529ee93a9ec618a4c67b63c52790d71812bb94179056913bba100af038001e3a10001ffffffff0420a1070000000000302ea22c8020541be9f843b476373fc18d8c8fab59c98c2c009f49c07fa66b7b431e4142feae8103120c008203000401cce028933b00000000302ea22c8020bc485b86ffd067abe520c078b74961f6b25e4efca6388c6bfd599ca3f53d8dae8103120c008203000401cc28b9486cb2430000232103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcac0000000000000000246a22e374e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc6600000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Output:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ProcessAssets</span>
+<span class="n">AssetValidate</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">vin1</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="n">vout0</span> <span class="mi">500000</span><span class="p">,</span> <span class="n">vout1</span> <span class="mi">999500000</span><span class="p">,</span> <span class="n">transfer</span> <span class="n">validated</span> <span class="mf">10.00000000</span> <span class="o">-&gt;</span> <span class="mf">10.00000000</span>
+<span class="n">AssetValidate</span><span class="o">.</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="n">passed</span>
+<span class="mi">88</span><span class="n">ac2d4d27654e9d8ac195d5ab482ee9895303902eaacfbb687b1e736bb06fb4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-3-decode-the-raw-transaction-and-check-against-the-following-if-the-data-is-sane">
+<h2>Step 3. Decode the raw transaction and check against the following if the data is sane<a class="headerlink" href="#step-3-decode-the-raw-transaction-and-check-against-the-following-if-the-data-is-sane" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vin</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span> <span class="n">normal</span> <span class="nb">input</span>
+<span class="n">vin</span><span class="o">.</span><span class="mi">1</span> <span class="n">to</span> <span class="n">vin</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">valid</span> <span class="n">CC</span> <span class="n">outputs</span>
+<span class="n">vout</span><span class="o">.</span><span class="mi">0</span> <span class="n">to</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="n">assetoshis</span> <span class="n">output</span> <span class="n">to</span> <span class="n">CC</span>
+<span class="n">vout</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="n">normal</span> <span class="n">output</span> <span class="k">for</span> <span class="n">change</span> <span class="p">(</span><span class="k">if</span> <span class="nb">any</span><span class="p">)</span>
+<span class="n">vout</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">opreturn</span> <span class="p">[</span><span class="n">EVAL_ASSETS</span><span class="p">]</span> <span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="p">[</span><span class="n">assetid</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>Example Command:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST decoderawtransaction 01000000023b61e44ce3cedf536b52d8da11faacd041494a078e971551ed4e2bd496bc8da1000000006a4730440220111c67172740c0c2556979fdf84639ba299ff22586ebd220f25aa301f029003f02203da97a2575c0ed1b309774309f5dc952ee305a46cd83e95eae99e3564a1772f6012103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcffffffff66cc65f38d7e878d312386777c4f049f738b8894353c30108f7fe4ca515489e4000000007b4c79a276a072a26ba067a565802103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc8140c875a14edcbece61a6c18721398c927dc1e4509863e075b3922a8e3a2da6848e037142436e9102b529ee93a9ec618a4c67b63c52790d71812bb94179056913bba100af038001e3a10001ffffffff0420a1070000000000302ea22c8020541be9f843b476373fc18d8c8fab59c98c2c009f49c07fa66b7b431e4142feae8103120c008203000401cce028933b00000000302ea22c8020bc485b86ffd067abe520c078b74961f6b25e4efca6388c6bfd599ca3f53d8dae8103120c008203000401cc28b9486cb2430000232103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcac0000000000000000246a22e374e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc6600000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Output:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;88ac2d4d27654e9d8ac195d5ab482ee9895303902eaacfbb687b1e736bb06fb4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="mi">524</span><span class="p">,</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;locktime&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;vin&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;a18dbc96d42b4eed5115978e074a4941d0acfa11dad8526b53dfcee34ce4613b&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;scriptSig&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;30440220111c67172740c0c2556979fdf84639ba299ff22586ebd220f25aa301f029003f02203da97a2575c0ed1b309774309f5dc952ee305a46cd83e95eae99e3564a1772f601 03fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;4730440220111c67172740c0c2556979fdf84639ba299ff22586ebd220f25aa301f029003f02203da97a2575c0ed1b309774309f5dc952ee305a46cd83e95eae99e3564a1772f6012103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;sequence&quot;</span><span class="p">:</span> <span class="mi">4294967295</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc66&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;scriptSig&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;a276a072a26ba067a565802103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc8140c875a14edcbece61a6c18721398c927dc1e4509863e075b3922a8e3a2da6848e037142436e9102b529ee93a9ec618a4c67b63c52790d71812bb94179056913bba100af038001e3a10001&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;4c79a276a072a26ba067a565802103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc8140c875a14edcbece61a6c18721398c927dc1e4509863e075b3922a8e3a2da6848e037142436e9102b529ee93a9ec618a4c67b63c52790d71812bb94179056913bba100af038001e3a10001&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;sequence&quot;</span><span class="p">:</span> <span class="mi">4294967295</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;vout&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.00500000</span><span class="p">,</span>
+            <span class="nt">&quot;valueSat&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">,</span>
+            <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;scriptPubKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;a22c8020541be9f843b476373fc18d8c8fab59c98c2c009f49c07fa66b7b431e4142feae8103120c008203000401 OP_CHECKCRYPTOCONDITION&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;2ea22c8020541be9f843b476373fc18d8c8fab59c98c2c009f49c07fa66b7b431e4142feae8103120c008203000401cc&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;reqSigs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cryptocondition&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;RLB1YWh4N115NFh8tbArCBGaTQ3F43Yg1F&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">9.99500000</span><span class="p">,</span>
+            <span class="nt">&quot;valueSat&quot;</span><span class="p">:</span> <span class="mi">999500000</span><span class="p">,</span>
+            <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;scriptPubKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;a22c8020bc485b86ffd067abe520c078b74961f6b25e4efca6388c6bfd599ca3f53d8dae8103120c008203000401 OP_CHECKCRYPTOCONDITION&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;2ea22c8020bc485b86ffd067abe520c078b74961f6b25e4efca6388c6bfd599ca3f53d8dae8103120c008203000401cc&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;reqSigs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cryptocondition&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;RRPpWbVdxcxmhx4xnWnVZFDfGc9p1177ti&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">744335.99945000</span><span class="p">,</span>
+            <span class="nt">&quot;valueSat&quot;</span><span class="p">:</span> <span class="mi">74433599945000</span><span class="p">,</span>
+            <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;scriptPubKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;03fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc OP_CHECKSIG&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;2103fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abcac&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;reqSigs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pubkey&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;RANyPgfZZLhSjQB9jrzztSw66zMMYDZuxQ&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.00000000</span><span class="p">,</span>
+            <span class="nt">&quot;valueSat&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;scriptPubKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;asm&quot;</span><span class="p">:</span> <span class="s2">&quot;OP_RETURN e374e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc66&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;6a22e374e4895451cae47f8f10303c3594888b739f044f7c778623318d877e8df365cc66&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;nulldata&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 

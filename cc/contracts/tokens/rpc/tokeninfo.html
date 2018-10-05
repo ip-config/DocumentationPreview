@@ -1783,6 +1783,33 @@
             
   <div class="section" id="tokeninfo">
 <h1>tokeninfo<a class="headerlink" href="#tokeninfo" title="Permalink to this headline">¶</a></h1>
+<p>This call shows all information about any token. Currently, it returns the following info:</p>
+<ul class="simple">
+<li>Token id string</li>
+<li>Public key of the owner</li>
+<li>Name of the token</li>
+<li>Total token supply</li>
+<li>Description of the token</li>
+</ul>
+<div class="section" id="example-command">
+<h2>Example Command:<a class="headerlink" href="#example-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./komodo-cli -ac_name<span class="o">=</span>ATEST tokeninfo 43850dfce744581ef44775086625745adecd628993c5ff4c1c786cfd21009add
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<h2>Output:<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;tokenid&quot;</span><span class="p">:</span>    <span class="s2">&quot;43850dfce744581ef44775086625745adecd628993c5ff4c1c786cfd21009add&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;03fe754763c176e1339a3f62ee6b9484720e17ee4646b65a119e9f6370c7004abc&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;TAKA&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;supply&quot;</span><span class="p">:</span> <span class="s2">&quot;100000.00000000&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing phase 3.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
