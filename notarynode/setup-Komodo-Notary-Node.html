@@ -533,6 +533,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cc/contracts-rpc-index.html">Index of RPC for the Contracts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cc/contracts/tokens/rpc-index.html">Tokens RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/contracts/faucet/rpc-index.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/contracts/rewards/rpc-index.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cc/contracts/dice/rpc-index.html">Dice RPC</a></li>
 </ul>
 </li>
 </ul>
@@ -1785,7 +1788,7 @@
 <p>If you have any problems, please join <code class="docutils literal notranslate"><span class="pre">#notarynode</span></code> on the <a class="reference external" href="https://komodoplatform.com/discord">Komodo Discord</a></p>
 </div>
 <div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<span id="knn-requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="hardware">
 <h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h3>
 <p>Komodo currently only works on Linux. To setup Komodo Notary Node be sure you have a good solid server with the following requirements:</p>
@@ -1819,7 +1822,7 @@
 </div>
 </div>
 <div class="section" id="get-started">
-<h2>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
+<span id="knn-get-started"></span><h2>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
 <p>Log in as the user you made earlier (<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user&#64;ip_address_of_server</span></code>)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade <span class="o">(</span>and say Y when it wants to upgrade stuff<span class="o">)</span>
@@ -1830,7 +1833,7 @@ sudo apt-get upgrade <span class="o">(</span>and say Y when it wants to upgrade 
 </pre></div>
 </div>
 <div class="section" id="install-nanomsg">
-<h3>Install <code class="docutils literal notranslate"><span class="pre">nanomsg</span></code><a class="headerlink" href="#install-nanomsg" title="Permalink to this headline">¶</a></h3>
+<span id="knn-nanomsg"></span><h3>Install <code class="docutils literal notranslate"><span class="pre">nanomsg</span></code><a class="headerlink" href="#install-nanomsg" title="Permalink to this headline">¶</a></h3>
 <p>Libnanomsg needs to be installed.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 git clone https://github.com/nanomsg/nanomsg
@@ -1897,7 +1900,7 @@ git checkout dev
 <p>This can take some time.</p>
 </div>
 <div class="section" id="when-it-is-finished-let-s-create-komodo-conf">
-<h3>When it is finished, let’s create <code class="docutils literal notranslate"><span class="pre">komodo.conf</span></code><a class="headerlink" href="#when-it-is-finished-let-s-create-komodo-conf" title="Permalink to this headline">¶</a></h3>
+<span id="knn-create-kmdconf"></span><h3>When it is finished, let’s create <code class="docutils literal notranslate"><span class="pre">komodo.conf</span></code><a class="headerlink" href="#when-it-is-finished-let-s-create-komodo-conf" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 mkdir .komodo
 <span class="nb">cd</span> .komodo

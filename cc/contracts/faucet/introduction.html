@@ -533,6 +533,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../contracts-rpc-index.html">Index of RPC for the Contracts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../tokens/rpc-index.html">Tokens RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc-index.html">Faucet RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rewards/rpc-index.html">Rewards RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dice/rpc-index.html">Dice RPC</a></li>
 </ul>
 </li>
 </ul>
@@ -1781,6 +1784,19 @@
             
   <div class="section" id="faucet-rpc">
 <h1>Faucet RPC<a class="headerlink" href="#faucet-rpc" title="Permalink to this headline">¶</a></h1>
+<p>This is a Faucet contract. Enables anyone to setup and operate an onchain-faucet. For each faucet, there is an address to which anyone can send their funds and the address will be serving anyone who requests it as long as their address satisfies some constraints.</p>
+<p>To claim faucet funds, the used pubkey and address must be fresh without any funds or tx associated to that address. One address can claim faucet funds only once.</p>
+<p><code class="docutils literal notranslate"><span class="pre">faucetget</span></code> runs a custom PoW to deter leechers.</p>
+<p>Faucet sends 0.1 coins and requires about 30 seconds of CPU time.</p>
+<div class="section" id="available-rpc-calls">
+<span id="id1"></span><h2>Available RPC Calls<a class="headerlink" href="#available-rpc-calls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="rpc/faucetaddress.html"><span class="doc">faucetaddress [pubkey]</span></a> - will show the faucet contract address</li>
+<li><a class="reference internal" href="rpc/faucetfund.html"><span class="doc">faucetfund amount</span></a> - donate/send your funds to the faucet</li>
+<li><a class="reference internal" href="rpc/faucetget.html"><span class="doc">faucetget</span></a> - request funds from faucet</li>
+<li><a class="reference internal" href="rpc/faucetinfo.html"><span class="doc">faucetinfo</span></a> - displays faucet funds balance</li>
+</ul>
+</div>
 </div>
 
 
