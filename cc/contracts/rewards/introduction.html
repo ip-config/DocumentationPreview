@@ -395,6 +395,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../notarynode/update-Komodo-manually.html#problems">Problems?</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notarynode/generate-privkeys-third-party-coins-from-passphrase.html">How to Generate Address and Private Key (WIF) for 3rd Party Coins Using Passphrase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notarynode/generate-privkeys-third-party-coins-from-passphrase.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notarynode/generate-privkeys-third-party-coins-from-passphrase.html#steps">Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notarynode/generate-privkeys-third-party-coins-from-passphrase.html#example-output">Example Output:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../notarynode/split-utxo-for-notarization.html">How to Split UTXO for Notarization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notarynode/split-utxo-for-notarization.html#step-1-create-a-script-named-acsplit">Step 1: Create a script named <code class="docutils literal notranslate"><span class="pre">acsplit</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notarynode/split-utxo-for-notarization.html#step-2-give-executable-permission-to-acsplit">Step 2: Give executable permission to <code class="docutils literal notranslate"><span class="pre">acsplit</span></code></a></li>
@@ -1784,6 +1790,24 @@
             
   <div class="section" id="rewards-rpc">
 <h1>Rewards RPC<a class="headerlink" href="#rewards-rpc" title="Permalink to this headline">¶</a></h1>
+<p>Rewards contract allows us to create a master-node like rewards program. Which gives a user the ability to earn rewards by locking coins.</p>
+<p>APR and minimum deposit are configurable per rewards plan (there can be many active at any given time), even the required holding period.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you create a plan with <code class="docutils literal notranslate"><span class="pre">mindeposit:</span> <span class="pre">10000</span></code>, make sure you have added 10000 + tx fees using the <code class="docutils literal notranslate"><span class="pre">rewardsaddfunding</span></code> call after creating the plan. The Rewards contract is set to require deposit amount of funding in rewards plan as assurance it will have the funds needed to pay.</p>
+</div>
+<div class="section" id="available-rpc-calls">
+<h2>Available RPC Calls<a class="headerlink" href="#available-rpc-calls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><span class="xref std std-doc">rewardsaddfunding name fundingtxid amount</span></li>
+<li><span class="xref std std-doc">rewardsaddress [pubkey]</span></li>
+<li><span class="xref std std-doc">rewardscreatefunding name amount APR mindays maxdays mindeposit</span></li>
+<li><span class="xref std std-doc">rewardsinfo fundingtxid</span></li>
+<li><span class="xref std std-doc">rewardslist</span></li>
+<li><span class="xref std std-doc">rewardslock name fundingtxid amount</span></li>
+<li><span class="xref std std-doc">rewardsunlock name fundingtxid [txid]</span></li>
+</ul>
+</div>
 </div>
 
 
